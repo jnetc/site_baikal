@@ -1,0 +1,25 @@
+@import './scss/base';
+@import './scss/color';
+// @import '../layouts/index';
+
+
+  // GATSBY WRAPPER ID
+#gatsby-focus-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(-30deg,  $bg-gradient-deep, $bg-gradient-finely);
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  margin: 0 auto;
+}
+
+// @import '../components/background/scss/background'

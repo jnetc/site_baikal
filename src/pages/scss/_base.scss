@@ -1,0 +1,43 @@
+// Reset styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  // Remove list style
+ul {
+  list-style: none;
+}
+// Remove link style
+a {
+  text-decoration: none;
+}
+
+legend {
+  user-select: none;
+}
+button {
+  border-style: none;
+  outline-style: none;
+}
+:focus,
+:active {
+  outline: none;
+}
+
+// Body
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto-Regular';
+}
+
+button {
+  font-family: 'Roboto-Bold';
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+}
+p, pre, button {
+  line-height: 1;
+}
