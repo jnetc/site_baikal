@@ -1,0 +1,21 @@
+
+.transition-page-enter.transition-page-enter-active {
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-25px);
+}
+.transition-page-enter-done {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(0px);
+}
+
+.transition-page-exit.transition-page-exit-active {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.transition-page-exit-done {
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateX(-25px);
+}
