@@ -1,0 +1,158 @@
+.lake-bubble {
+  width: 100px;
+  height: 200px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 10px;
+  @media screen and (min-width: 2500px){
+    bottom: 70px;
+  }
+  @media screen and (max-width: 750px) {
+    transform: scale(0.8) translateX(-50%);
+  }
+  transform: translateX(-50%);
+  pointer-events: none;
+  user-select: none;
+  z-index: 55;
+  // border: 1px solid red;
+}
+
+  // Bubble options
+.bubble {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50%;
+  background: $bg-gradient-finely;
+}
+
+  // Bubble component options
+.fbl {
+  left: 25%;
+  opacity: .6;
+  @media screen and (max-width: 750px) {
+    transform: scale(0.6) translateX(-50%);
+    bottom: -50px;
+  }
+  @media screen and (orientation: portrait){
+    left: 15%;
+  }
+    // Bubble random animation & delay
+  #bubble{
+    @for $i from 1 to 9 {
+      &-#{$i} {
+        animation: bubl-fbl #{random($i) + random($i)}s linear infinite;
+        animation-delay: #{random($i)}s
+      }
+    }
+  }
+    // Bubbles position
+  #bubble-1 {
+    left: 63%;
+    width: 6px;
+    height: 6px;
+  }
+  #bubble-2 {
+    left: 55%;
+    width: 13px;
+    height: 13px;
+  }
+  #bubble-3 {
+    left: 47%;
+    width: 10px;
+    height: 10px;
+  }
+  #bubble-4 {
+    left: 59%;
+    width: 7px;
+    height: 7px;
+  }
+  #bubble-5 {
+    left: 62%;
+    width: 17px;
+    height: 17px;
+  }
+  #bubble-6 {
+    left: 49%;
+    width: 9px;
+    height: 9px;
+  }
+  #bubble-7 {
+    left: 45%;
+    width: 7px;
+    height: 7px;
+  }
+  #bubble-8 {
+    left: 39%;
+    width: 5px;
+    height: 5px;
+  }
+}
+.tbl {
+  left: 83%;
+  opacity: .7;
+  @media screen and (max-width: 750px) {
+    bottom: -10px;
+    transform: scale(0.8) translateX(-50%);
+  }
+  #bubble{
+    @for $i from 1 to 9 {
+      &-#{$i} {
+        animation: bubl-tbl #{random($i) + random($i)}s linear infinite;
+        animation-delay: #{random($i)}s
+      }
+    }
+  }
+  #bubble-1 {
+    left: 42%;
+    width: 7px;
+    height: 7px;
+  }
+  #bubble-2 {
+    left: 61%;
+    width: 15px;
+    height: 15px;
+  }
+  #bubble-3 {
+    bottom: 0;
+    left: 57%;
+    width: 10px;
+    height: 10px;
+  }
+  #bubble-4 {
+    left: 48%;
+    width: 9px;
+    height: 9px;
+  }
+  #bubble-5 {
+    left: 55%;
+    width: 21px;
+    height: 21px;
+  }
+  #bubble-6 {
+    left: 63%;
+    width: 9px;
+    height: 9px;
+  }
+  #bubble-7 {
+    left: 37%;
+    width: 10px;
+    height: 10px;
+  }
+  #bubble-8 {
+    left: 41%;
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@keyframes bubl-fbl {
+  0% { opacity: 0; transform: translateX(0px) scale(0)}
+  50% {opacity: .8; transform: translateY(-75px) scale(.8)}
+  100% {opacity: 0; transform: translateY(-150px) scale(1)}
+}
+@keyframes bubl-tbl {
+  0% { opacity: 0; transform: translateX(0px) scale(0)}
+  50% {opacity: .8; transform: translateY(-75px) scale(.8)}
+  100% {opacity: 0; transform: translateY(-150px) scale(1)}
+}
+

@@ -1,0 +1,102 @@
+svg#first_reef,
+svg#mob_reef,
+svg#second_reef,
+svg#third_reef,
+svg#fourth_reef,
+svg#stone_one,
+svg#stone_two,
+svg#stone_three {
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+}
+
+svg#first_reef {
+  left: 0;
+  width: 100%;
+  fill: #053b6b;
+  z-index: 100;
+  @media screen and (orientation: portrait) {
+    display: none;
+  }
+}
+svg#mob_reef {
+  left: 0;
+  width: 100%;
+  fill: #053b6b;
+  z-index: 100;
+  @media screen and (orientation: landscape) {
+    display: none;
+  }
+}
+
+svg#second_reef {
+  width: 60%;
+  left: 50%;
+  fill: #094578;
+  transform: translateX(-50%);
+  z-index: 50;
+  @media screen and (orientation: portrait) {
+    width: 100%;
+    bottom: 1%;
+  }
+}
+
+svg#third_reef {
+  width: 43%;
+  left: 55.8%;
+  bottom: 0%;
+  fill: #0f5694;
+  z-index: 10;
+  @media screen and (orientation: portrait) {
+    width: 54%;
+    bottom: 4%;
+    left: 50.8%;
+    fill: #1461a5;
+  }
+}
+svg#fourth_reef {
+  width: 38%;
+  bottom: 1%;
+  left: -1.8%;
+  fill: #2d6ea8;
+  z-index: 10;
+  @media screen and (orientation: portrait) {
+    width: 56%;
+    bottom: 4%;
+    left: -11.8%;
+  }
+}
+
+svg#stone_one {
+  width: 5%;
+  left: 24.7%;
+  bottom: 1%;
+  z-index: 101;
+  // display: none;
+  @media screen and (orientation: portrait) {
+    display: none;
+  }
+}
+
+svg#stone_two {
+  width: 8.4%;
+  left: 51%;
+  bottom: 1%;
+  z-index: 101;
+  @media screen and (orientation: portrait) {
+    width: 14.4%;
+  }
+}
+
+svg#stone_three {
+  width: 8.4%;
+  left: 77%;
+  bottom: 1%;
+  z-index: 101;
+  @media screen and (orientation: portrait) {
+   display: none;
+  }
+}

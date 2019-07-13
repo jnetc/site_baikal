@@ -1,6 +1,6 @@
 import React from 'react'
 import TransitionPage from '../components/transition-page/'
-// import Background from '../components/background/'
+import Background from '../components/background/'
 
 const Layout = (props) => {
   return (
@@ -9,7 +9,7 @@ const Layout = (props) => {
       <TransitionPage props={ props }>
         { props.children }
       </TransitionPage>
-      {/* <Background/> */}
+      <Background/>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
