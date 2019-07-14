@@ -9,6 +9,7 @@ export default class Head extends React.Component {
           <meta charSet="utf-8" />
           <title>Baikal site</title>          
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet"/>
+          <link href="/icons/fontello.css" rel="stylesheet" type="text/css"/>
         </Helmet>
       </div>
     )

@@ -12,7 +12,7 @@ const IndexPage = () => (
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
 
-    <i className="icon-fish" style={{ fontSize: '2em', color: '#000'}}></i>
+    {/* <i className="icon-fish" style={{ fontSize: '2em', color: '#000'}}></i> */}
     <Link to="/page-2/">Go to page 2</Link>
   </>
 )

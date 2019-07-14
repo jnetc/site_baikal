@@ -11,6 +11,7 @@ const Background = () => {
       <div id="background">
         <FourthReef/>
         <ThirdReef/>
+        <Fish data={{ class: 'fl2'}}/>
         <SecondReef/>
         <MainReef/>
         <MobReef/>
@@ -21,7 +22,6 @@ const Background = () => {
         <Bubbles data={{ class: 'fbl'}}/>
         <Bubbles data={{ class: 'tbl'}}/>
         <Fish data={{ class: 'fl1'}}/>
-        <Fish data={{ class: 'fl2'}}/>
         <Fish data={{ class: 'fl3'}}/>
         
       </div>

@@ -5,10 +5,6 @@ const Fishes = (props) => {
   let fishNum = ["fish-1", "fish-2", "fish-3", "fish-4","fish-5", "fish-6", "fish-7", "fish-8"]
     // Generate fishes
   const fishes = fishNum.map((fish, index) => {    
-
-    if (props.data.class === 'fl1') {
-      
-    }
     if (props.data.class === 'fl2' && index < 2) {
       return <Fish key={ index } id={ fish }/>
     }

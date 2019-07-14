@@ -1,9 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
+import Head from '../components/head'
 
 const SecondPage = () => (
   <>
+    <Head/>
     <SEO title="Page two" />
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>

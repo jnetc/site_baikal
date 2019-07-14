@@ -90,6 +90,7 @@
 .tbl {
   left: 83%;
   opacity: .7;
+  bottom: 0px;
   @media screen and (max-width: 750px) {
     bottom: -10px;
     transform: scale(0.8) translateX(-50%);
