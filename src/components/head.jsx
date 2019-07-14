@@ -1,6 +1,8 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import '../icons/fontello.css'
+import '../icons/fontello.woff'
+import '../icons/fontello.woff2'
 
 export default class Head extends React.Component {
   render() {
