@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('/icons/fontello.woff2?97868371') format('woff2'),
+       url('/icons/fontello.woff?97868371') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal; 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ 
+.icon-cranberry:before { content: '\e800'; } /* '' */
+.icon-email:before { content: '\e801'; } /* '' */
+.icon-pepper:before { content: '\e802'; } /* '' */
+.icon-phone:before { content: '\e803'; } /* '' */
+.icon-vodka:before { content: '\e804'; } /* '' */
+.icon-pinenut:before { content: '\e805'; } /* '' */
+.icon-info:before { content: '\e806'; } /* '' */
+.icon-ice:before { content: '\e807'; } /* '' */
+.icon-geo:before { content: '\e808'; } /* '' */
+.icon-fish:before { content: '\e809'; } /* '' */
+.icon-face:before { content: '\e80a'; } /* '' */
