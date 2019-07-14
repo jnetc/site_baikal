@@ -3,30 +3,26 @@
   height: 80px;
   display: block;
   position: absolute;
-  bottom: 180px;
   @media screen and (min-width: 2500px){
     bottom: 70px;
   }
   @media screen and (max-width: 750px) {
     transform: scale(0.8) translateX(-50%);
   }
-  // transform: translateX(-50%);
   pointer-events: none;
   user-select: none;
-  z-index: 55;
+  z-index: 45;
   // border: 1px solid red;
+  .icon-fish {
+    position: absolute;
+  }
 }
-
-
-.icon-fish {
-  // opacity: .6;
-  position: absolute;
-  color: $underworld;
-  display: block;
-}
-
-
+  /////////////////////
+  // Косяк рыб первый
 .fl1 {
+  right: 0;
+  bottom: 90px;
+  color: $underworld;
   animation: fish-fl1 85s linear infinite;
   @media screen and (max-width: 750px) {
     transform: scale(0.6) translateX(-50%);
@@ -47,12 +43,10 @@
     }
   }
   #fish-1 {
-    top: 15%;
-    left: 3%;
     font-size: 2.3rem;
   }
   #fish-2 {
-    top: 0;
+    bottom: 100%;
     left: 40%;
     font-size: 1.2rem;
   }
@@ -87,11 +81,13 @@
     font-size: 1.7rem;
   }
 }
+  /////////////////////
+  // Косяк рыб второй
 .fl2 {
-  left: 0%;
-  bottom: 12%;
-  transform: scaleX(-1);
-  animation: fish-fl2 65s linear infinite;
+  left: 0;
+  bottom: 80px;
+  color: rgba($underworld, .8);
+  animation: fish-fl2 105s linear infinite;
   animation-delay: 30s;
   @media screen and (max-width: 750px) {
     bottom: 50px;
@@ -101,8 +97,8 @@
   #fish {
     @for $i from 1 to 9 {
       &-#{$i}{
-        animation: fish-fl2-m 15s linear infinite;
-        animation-delay: #{random($i) * 3}s
+        animation: fish-fl1-m 15s linear infinite;
+        animation-delay: #{random($i)* 3}s
       }
     }
   }
@@ -123,25 +119,27 @@
     }
   }
 }
-
+  /////////////////////
+  // Косяк рыб третий
 .fl3 {
   left: -10%;
   bottom: 25%;
+  color: rgba($underworld, 0.1);
   transform: scaleX(-1);
-  animation: fish-fl3 85s linear infinite;
-  animation-delay: 15s;
+  animation: fish-fl2 130s linear infinite;
+  animation-delay: 1s;
   @media screen and (max-width: 750px) {
     bottom: 110px;
     transform: scale(0.8) translateX(-50%);
   }
-  .icon-fish {
-    color: rgba($underworld, 0.1);
-  }
+  @media screen and (orientation: portrait){
+    left: -200px;
 
+  }
   #fish {
     @for $i from 1 to 9 {
       &-#{$i}{
-        animation: fish-fl2-m 15s linear infinite;
+        animation: fish-fl1-m 15s linear infinite;
         animation-delay: #{random($i) * 3}s
       }
     }
@@ -181,18 +179,16 @@
   }
 }
 
-
 @keyframes fish-fl1 {
-  0% { opacity: .7; transform: translate3d(100vw, -15px, 0) scale(.8); }
-  33% {opacity: 1; transform: translate3d(50vw, 25px, 0) scale(1); }
-  66% {opacity: 1; transform: translate3d(0vw, 50px, 0) scale(1); }
-  100% {opacity: .8; transform: translate3d(-50vw, 150px, 0) scale(.9); }
+  0% { transform: translate(0vw, -15px) scale(.8); }
+  50% { transform: translate(-50vw, 35px) scale(1); }
+  100% { transform: translate(-100vw, -50px) scale(.9); }
 }
 @keyframes fish-fl1-mob {
-  0% { opacity: .7; transform: translate3d(100vw, -15px, 0) scale(.6); }
-  33% {opacity: 1; transform: translate3d(50vw, 25px, 0) scale(.8); }
-  66% {opacity: 1; transform: translate3d(0vw, 30px, 0) scale(.7); }
-  100% {opacity: .3; transform: translate3d(-50vw, 0px, 0) scale(.6); }
+  0% { transform: translate3d(100vw, -15px, 0) scale(.6); }
+  33% { transform: translate3d(50vw, 25px, 0) scale(.8); }
+  66% { transform: translate3d(0vw, 30px, 0) scale(.7); }
+  100% { transform: translate3d(-50vw, 0px, 0) scale(.6); }
 }
 @keyframes fish-fl1-m {
   0% { transform: translate3d(0px, 0px, 0px) }
@@ -203,22 +199,8 @@
 }
 
 @keyframes fish-fl2 {
-  0% { opacity: 0; transform: translateX(0vw) scaleX(-1)}
-  50% {opacity: .8; transform: translateX(50vw) scaleX(-1)}
-  100% {opacity: 0; transform: translateX(100vw) scaleX(-1)}
-}
-@keyframes fish-fl2-m {
-  0% { transform: translate3d(0px, 0px, 0px) }
-  25% { transform: translate3d(0px, 15px, 10px) }
-  50% { transform: translate3d(0px, 25px, 50px) }
-  75% { transform: translate3d(0px, 10px, 50px) }
-  100% { transform: translate3d(0px, 0px, 50px) }
-}
-
-
-@keyframes fish-fl3 {
-  0% { opacity: 1; transform: translate3d(0vw, 0, 0) scaleX(-1)}
-  50% {opacity: 1; transform: translate3d(50vw, 0, 0) scaleX(-1)}
-  100% {opacity: 1; transform: translate3d(100vw, 0, 0) scaleX(-1)}
+  0% { transform: translate(0vw, -15px) scaleX(-1)}
+  50% { transform: translate(50vw, 30px) scaleX(-1)}
+  100% { transform: translate(100vw, -50px) scaleX(-1)}
 }
 
