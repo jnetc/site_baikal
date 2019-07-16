@@ -3,9 +3,10 @@ import TransitionPage from '../components/transition-page/'
 import Background from '../components/background/'
 
 const Layout = (props) => {
+  console.log(process.env.CONTENTFUL_ACCESS_TOKEN);
+  
   return (
     <React.Fragment>
-      <h1>HELLO</h1>
       <TransitionPage props={ props }>
         { props.children }
       </TransitionPage>

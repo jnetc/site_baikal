@@ -1,0 +1,108 @@
+.mar-auto {
+  margin: auto;
+}
+
+#main-page {
+
+}
+
+#logo-baikal {
+  width: 550px;
+  margin: auto;
+}
+h1 {
+  font-size: 3em;
+  font-weight: 400;
+  margin: 2% auto 7%;
+}
+#redirect {
+  margin: auto;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+#redirect-btns {
+  margin: 15px auto 0;
+  user-select: none;
+  .redirect-link {
+    width: 160px;
+    height: 55px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 10px;
+    overflow: hidden;
+    color: $textcolor;
+    font-size: 1.7em;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 10px 10px rgba($deep-blue, .4);
+    transition: all .3s ease-in-out;
+    &.yes {
+      background: $bg-gradient-deep;
+    }
+    &.no {
+      background: $deep-blue;
+    }
+    &:hover.yes {
+      background: lighten($bg-gradient-deep, 5);
+    }
+    &:hover.no {
+      background: lighten($deep-blue, 5);
+    }
+    &:hover {
+      // color: $deep-blue;
+      box-shadow: 0 10px 10px rgba($deep-blue, .2);
+      animation: shake .5s ease-in-out forwards;
+    }
+  }
+}
+
+#show-about {
+  width: 160px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 45px;
+  border-radius: 50px;
+  background: $deep-blue;
+  box-shadow: -10px 0px 10px rgba($deep-blue, .4);
+  transform: translateX(85px) rotate(-90deg);
+  transition: all .3s ease-in-out;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1001;
+  &:hover {
+    background: lighten($deep-blue, 5);
+    box-shadow: -10px 0px 10px rgba($deep-blue, .2);
+    transform: translateX(80px) rotate(-90deg);
+  }
+  input {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    z-index: -5;
+
+  }
+}
+#show-about
+input:checked {
+  color: red;
+}
+
+#main-about-site {
+  margin: auto;
+}
+
+@keyframes shake {
+  0% { transform: translateX(8px)}
+  20% { transform: translateX(-6px)}
+  40% { transform: translateX(4px)}
+  60% { transform: translateX(-3px)}
+  80% { transform: translateX(1px)}
+  100% { transform: translateX(0px)}
+}

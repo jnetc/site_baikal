@@ -1,3 +1,4 @@
+  // Base optional
 @import './scss/base';
 @import './scss/color';
 
@@ -13,11 +14,23 @@
 }
 
 main {
+  display: flex;
   flex-grow: 1;
+  > div {
+    width: $width-x;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    color: $textcolor;
+  }
 }
 
 footer {
   margin: 0 auto;
 }
+  // Background conponents
+@import '../components/background/scss/background';
 
-@import '../components/background/scss/background'
+  // PAGES
+@import './scss/index'
