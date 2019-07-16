@@ -12,8 +12,8 @@ const IndexPage = () => {
     contentfulMainPage {
       title,
       question,
-      about_baikal {
-        about_baikal
+      aboutBaikal {
+        aboutBaikal
       }
     }
     contentfulAsset {
@@ -25,7 +25,7 @@ const IndexPage = () => {
   `)
   console.log(data);
   
-  const { title, question, about_baikal } = data.contentfulMainPage
+  const { title, question, aboutBaikal } = data.contentfulMainPage
 
   return (
     <>
@@ -41,7 +41,7 @@ const IndexPage = () => {
       <label id="show-about">Baikalista
         <input type="checkbox"/>
       </label>
-      {/* <p id="main-about-site">{ about_baikal.about_baikal }</p> */}
+      {/* <p id="main-about-site">{ aboutBaikal.aboutBaikal }</p> */}
 
     </>
   )
