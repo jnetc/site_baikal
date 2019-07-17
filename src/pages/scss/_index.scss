@@ -2,9 +2,6 @@
   margin: auto;
 }
 
-#main-page {
-
-}
 
 #logo-baikal {
   width: 550px;
@@ -85,18 +82,45 @@ h1 {
     width: 1px;
     height: 1px;
     position: absolute;
+    opacity: 0;
     z-index: -5;
 
   }
 }
-#show-about
-input:checked {
-  color: red;
+#aboutPage {
+  width: 100vw;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $deep-blue;
+  z-index: 1005;
+  #main-about-site {
+    width: 70%;
+    font-size: 2em;
+    font-weight: lighter;
+    margin: auto;
+    white-space: pre-wrap;
+  }
+}
+.clouse-win {
+  width: 30px;
+  height: 30px;
+  background: red;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 }
 
-#main-about-site {
-  margin: auto;
-}
+
+
+
+
+
 
 @keyframes shake {
   0% { transform: translateX(8px)}
