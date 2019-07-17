@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import SEO from "../components/seo"
 import Head from '../components/head'
 
-const SecondPage = () => (
+const mainVodka = () => (
   <>
     <Head/>
     <SEO title="Page two" />
@@ -14,4 +14,4 @@ const SecondPage = () => (
   </>
 )
 
-export default SecondPage
+export default mainVodka
