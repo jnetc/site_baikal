@@ -100,7 +100,7 @@ class IndexPage extends React.Component {
         { this.state.show && 
           <div id="aboutPage">
             <div className="clouse-win" onClick={ hideAbout }></div>
-            <pre id="main-about-site">{ documentToReactComponents( contentfulMainPage.aboutBaikal2.json, options )}</pre> 
+            <pre id="main-about-site">{ documentToReactComponents( contentfulMainPage.aboutBaikal.json, options )}</pre> 
           </div>
         }
       </>
@@ -120,7 +120,7 @@ export const MainPageQuery = graphql `
     contentfulMainPage {
       title,
       question,
-      aboutBaikal2 {
+      aboutBaikal {
         json
       }
     }
