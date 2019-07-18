@@ -23,6 +23,11 @@ const Background = () => {
         <Lights/>
         <Bubbles data={{ class: 'fbl'}}/>
         <Bubbles data={{ class: 'tbl'}}/>
+        <footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      </footer>
         
       </div>
     )

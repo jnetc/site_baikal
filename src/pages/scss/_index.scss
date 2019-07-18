@@ -5,17 +5,28 @@
 
 #logo-baikal {
   width: 550px;
-  margin: auto;
+  margin: 0 auto;
+  @media screen and (max-width: 750px) {
+    width: 300px;
+  }
 }
 h1 {
   font-size: 3em;
   font-weight: 400;
   margin: 2% auto 7%;
+  @media screen and (max-width: 750px) {
+    font-size: 1.7em;
+  }
 }
+
+  // REDIRECT BUTTONS 
 #redirect {
-  margin: auto;
+  margin: 0 auto;
   font-weight: 400;
   font-size: 1.5em;
+  @media screen and (max-width: 750px) {
+    font-size: 1em;
+  }
 }
 #redirect-btns {
   margin: 15px auto 0;
@@ -52,31 +63,57 @@ h1 {
       box-shadow: 0 10px 10px rgba($deep-blue, .2);
       animation: shake .5s ease-in-out forwards;
     }
+    @media screen and (max-width: 750px) {
+      width: 100px;
+      height: 45px;
+      font-size: 1.2em;
+    }
   }
 }
-
+  // ABOUT BAIKAL
 #show-about {
   width: 160px;
-  height: 100px;
+  height: 40px;
   display: flex;
   justify-content: center;
   position: absolute;
   right: 0px;
   font-size: 20px;
   font-weight: bold;
-  line-height: 45px;
-  border-radius: 50px;
+  line-height: 40px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
   background: $deep-blue;
   box-shadow: -10px 0px 10px rgba($deep-blue, .4);
-  transform: translateX(85px) rotate(-90deg);
+  transform: translateX(60px) rotate(-90deg);
   transition: all .3s ease-in-out;
   user-select: none;
   cursor: pointer;
   z-index: 1001;
+  @media screen and (max-width: 750px) {
+    width: 140px;
+    height: 35px;
+    top: 0px;
+    right: 50%;
+    font-size: 15px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    line-height: 25px;
+    transform: translateX(50%) rotate(0deg);
+    box-shadow: 0px 10px 10px rgba($deep-blue, .4);
+  }
   &:hover {
     background: lighten($deep-blue, 5);
     box-shadow: -10px 0px 10px rgba($deep-blue, .2);
-    transform: translateX(80px) rotate(-90deg);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    @media screen and (max-width: 750px) {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      box-shadow: 0px 10px 10px rgba($deep-blue, .4);
+    }
   }
   input {
     width: 1px;
@@ -88,11 +125,12 @@ h1 {
   }
 }
 #aboutPage {
-  width: 100vw;
+  width: 100%;
   min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 50px 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -101,22 +139,96 @@ h1 {
   #main-about-site {
     width: 70%;
     font-size: 2em;
-    font-weight: lighter;
+    font-weight: 400;
     margin: auto;
     white-space: pre-wrap;
+    @media screen and (max-width: 750px) {
+      width: 85%;
+      font-size: 1.5em;
+    }
   }
 }
 .clouse-win {
-  width: 30px;
-  height: 30px;
-  background: red;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 15px;
+  right: 15px;
+  transition: all .3s ease-in-out;
   cursor: pointer;
+  &::before {
+    content: '';
+    width: 30px;
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $textcolor;
+    transition: all .3s ease-in-out;
+    transform: rotate(45deg) translate(13px, 9px);
+  }
+  &::after {
+    content: '';
+    width: 30px;
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $textcolor;
+    transition: all .3s ease-in-out;
+    transform: rotate(-45deg) translate(-9px, 13px);
+  }
+  &:hover {
+    border-color: $textcolor;
+    transform: rotate(90deg);
+    &::before {
+     
+      transform: rotate(45deg) translate(13px, 9px);
+    }
+    &::after {
+     
+      transform: rotate(-45deg) translate(-9px, 13px);
+    }
+  }
+  
 }
 
-
+.aboutPage_show.enter {
+  
+  opacity: 0;
+  // transform: translateX(100%) scale(0);
+}
+.aboutPage_show.enter-active {
+  
+  opacity: 1;
+  transition: all .5s ease-in-out;
+  // transform: translateX(0%) scale(1);
+}
+.aboutPage_show.enter-done {
+  
+  opacity: 1;
+  // transform: translateX(0%) scale(1);
+}
+.aboutPage_show.exit {
+  
+  opacity: 1;
+  // transform: translateX(0%) scale(1);
+}
+.aboutPage_show.exit-active {
+  
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  // transform: translateX(100%) scale(0);
+}
+.aboutPage_show.exit-done {
+  
+  opacity: 0;
+  // transform: translateX(100%) scale(0);
+}
 
 
 

@@ -1,4 +1,5 @@
 import React from "react"
+import { CSSTransition } from 'react-transition-group'
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import './index.scss'
@@ -54,7 +55,7 @@ import { graphql } from 'gatsby'
 // }
 
   // Options for "RICH TEXT"
-const Bold = ({ children }) => <span className="bold">{children}</span>
+const Bold = ({ children }) => <b>{children}</b>
 const Text = ({ children }) => <p className="align-center">{children}</p>
 
 const options = {
@@ -72,19 +73,24 @@ class IndexPage extends React.Component {
     show: false
   }
   render() {
+      // Show about page
     const showAbout = () => {
       this.setState(({ show }) => ({
         show: !show
       }))
     }
+
+    console.log(this.state.height);
+    
+      // Hide about pahe
     const hideAbout = () => {
       this.setState(({ show }) => ({
         show: !show
       }))
     }
-    
+  
     const { contentfulAsset, contentfulMainPage } = this.props.data
-    console.log(contentfulMainPage);
+    
     return (
       <>
         <Head/>
@@ -94,15 +100,21 @@ class IndexPage extends React.Component {
         <p id="redirect">{ contentfulMainPage.question }</p>
         <div id="redirect-btns">
           <Link className="redirect-link yes" to="/vodka/">Kyllä</Link>
-          <Link className="redirect-link no" to="/page-2/">En</Link>
+          <Link className="redirect-link no" to="/limsa/">En</Link>
         </div>
         <div id="show-about" onClick={ showAbout }>Baikalista</div>
-        { this.state.show && 
-          <div id="aboutPage">
+        <CSSTransition
+          in={ this.state.show }
+          timeout={ 500 }
+          className="aboutPage_show"
+          unmountOnExit>
+          <div id="aboutPage" >
             <div className="clouse-win" onClick={ hideAbout }></div>
+            <div id="scrolleble" >
             <pre id="main-about-site">{ documentToReactComponents( contentfulMainPage.aboutBaikal.json, options )}</pre> 
+            </div>
           </div>
-        }
+        </CSSTransition>
       </>
     )
   }
@@ -118,8 +130,8 @@ export default IndexPage
 export const MainPageQuery = graphql `
   query {
     contentfulMainPage {
-      title,
-      question,
+      title
+      question
       aboutBaikal {
         json
       }

@@ -3,17 +3,21 @@
 @import './scss/color';
 
   // GATSBY WRAPPER ID
+#___gatsby {
+  height: 100%;
+}
 #gatsby-focus-wrapper {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   background: linear-gradient(-30deg,  $bg-gradient-deep, $bg-gradient-finely);
   font-family: 'Open Sans', sans-serif;
 }
 
 main {
+  position: relative;
   display: flex;
   flex-grow: 1;
   > div {
@@ -21,14 +25,13 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: auto;
+    // margin: auto;
     color: $textcolor;
+    // perspective: 200px;
+    z-index: 1000;
   }
 }
 
-footer {
-  margin: 0 auto;
-}
   // Background conponents
 @import '../components/background/scss/background';
 

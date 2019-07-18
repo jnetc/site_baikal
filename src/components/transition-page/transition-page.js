@@ -9,7 +9,7 @@ const TransitionPage = ({ props }) => {
     <TransitionGroup component={'main'}>
       <CSSTransition
         key={ location.pathname }
-        timeout={ 300 }
+        timeout={ 200 }
         classNames="transition-page"
         unmountOnExit>
           <div>{ props.children }</div>

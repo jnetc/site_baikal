@@ -9,11 +9,6 @@ const Layout = (props) => {
         { props.children }
       </TransitionPage>
       <Background/>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
     </React.Fragment>
    
   )
