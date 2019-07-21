@@ -56,6 +56,9 @@ svg#third_reef {
     left: 50.8%;
     fill: #1461a5;
   }
+  @media screen and (max-width: 750px) {
+    bottom: 2.5%;
+  }
 }
 svg#fourth_reef {
   width: 38%;
@@ -67,6 +70,9 @@ svg#fourth_reef {
     width: 56%;
     bottom: 4%;
     left: -11.8%;
+  }
+  @media screen and (max-width: 750px) {
+    bottom: 2.5%;
   }
 }
 

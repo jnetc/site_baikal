@@ -3,7 +3,8 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import './transition-page.scss'
 
 const TransitionPage = ({ props }) => {
-  const { location } = props
+  const { location, children } = props
+  console.log( children);
   
   return (
     <TransitionGroup component={'main'}>
@@ -12,7 +13,7 @@ const TransitionPage = ({ props }) => {
         timeout={ 200 }
         classNames="transition-page"
         unmountOnExit>
-          <div>{ props.children }</div>
+          <div>{ children }</div>
       </CSSTransition>
     </TransitionGroup>
   )

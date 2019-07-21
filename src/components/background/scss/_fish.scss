@@ -88,9 +88,10 @@
   bottom: 80px;
   color: rgba($underworld, .8);
   animation: fish-fl2 105s linear infinite;
-  animation-delay: 30s;
+  animation-delay: 50s;
   @media screen and (max-width: 750px) {
-    bottom: 50px;
+    bottom: 60px;
+    left: -150px;
     transform: scale(0.8) translateX(-50%);
   }
 
