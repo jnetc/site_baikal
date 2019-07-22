@@ -3,8 +3,7 @@ import TransitionPage from '../components/transition-page/'
 import Background from '../components/background/'
 
 const Layout = (props) => {
-  console.log(props.children);
-  
+  console.log(props);
   return (
     <React.Fragment>
       <TransitionPage props={ props }>

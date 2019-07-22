@@ -6,34 +6,31 @@ module.exports.createPages = async ({ graphql, actions }) => {
     // путь к шаблону
   const vodkaTemplate = path.resolve(`./src/templates/vpage.js`)
     // Тянем текущий маршрут из GraphQl
-    // И Promise возвращаем результат
   const result = await graphql(`
     query {
-      allContentfulVodkaItems {
+      allContentfulVodkaProduct {
         edges {
           node {
-            pagepath
+            pageID
           }
         }
       }
     }
   `)
-  console.log(result.data.allContentfulVodkaItems);
-  
-  result.data.allContentfulVodkaItems.edges.forEach(item => {
+    // Генерируем страницы из GraphQl  
+  result.data.allContentfulVodkaProduct.edges.forEach(item => {
       // Path: абсолютный путь к странице
       // Component: Нахождение шаблона
-      // Context: Объект с содержанием
+      // Context: ключ по которому будет искаться нужная страница
+      // ВНИМАНИЕ!!!  НАЗВАНИЕ СТРАНИЦ ИЗ CONTENTFUL / ID
+      // ДОЛЖНЫ СОВПАДАТЬ C KEY в context !!! 
+      // иначе не будет фильтровать
     createPage({
-      path: `/vodka/${ item.node.pagepath }`,
+      path: `/vodka/${ item.node.pageID }`,
       component: vodkaTemplate,
       context: {
-        pagepath: item.node.pagepath
+        pageID: item.node.pageID
       }
     })
   });
-  
-    
-
-
 }

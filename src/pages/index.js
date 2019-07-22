@@ -34,11 +34,8 @@ class IndexPage extends React.Component {
       this.setState(({ show }) => ({
         show: !show
       }))
-    }
-
-    console.log(this.state.height);
-    
-      // Hide about pahe
+    }    
+      // Hide about page
     const hideAbout = () => {
       this.setState(({ show }) => ({
         show: !show
