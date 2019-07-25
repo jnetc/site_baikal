@@ -11,8 +11,6 @@ const Layout = (props) => {
       </TransitionPage>
       <Background/>
     </React.Fragment>
-   
   )
 }
-
 export default Layout

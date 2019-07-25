@@ -32,8 +32,10 @@ h5#q-selection-v {
   border-radius: 50%;
   border: 2px solid rgba($textcolor, .4);
   background: linear-gradient(155deg, rgba($textcolor, .2) 0%, rgba($textcolor, .2) 50%, rgba($textcolor, 0.03) 50.01%, rgba($textcolor, 0.03) 100%);
+  box-shadow: 15px 25px 15px rgba($deep-blue, 0);
   transform: scale(1);
   transition: all .3s ease-in-out;
+  user-select: none;
   &::after {
     content: '';
     width: inherit;
@@ -53,21 +55,21 @@ h5#q-selection-v {
   }
     // ACTIVE CLASS
   &.vodka-selected {
-    color: $bg-gradient-finely;
-    border: 2px solid rgba($bg-gradient-finely, 1);
+    box-shadow: 15px 25px 15px rgba($deep-blue, .3);
+    border: 2px solid transparent;
     background: $deep-blue;
     &::after {
-      filter: blur(10px);
-      background: rgba($deep-blue, .3);
+      box-shadow: none;
+      background: transparent;
     }
   }
   &:hover {
-    color: $bg-gradient-finely;
-    border: 2px solid rgba($bg-gradient-finely, 1);
+    box-shadow: 15px 25px 15px rgba($deep-blue, .3);
+    border: 2px solid transparent;
     background: $deep-blue;
     &::after {
-      filter: blur(10px);
-      background: rgba($deep-blue, .3);
+      box-shadow: none;
+      background: transparent;
     }
   }
 
