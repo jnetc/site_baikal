@@ -39,15 +39,50 @@ const VodkaPages = (props) => {
     vodka_history,
     vodka_img } = props.data.contentfulVodkaProduct
   
-  
-  
+
     return (
       <>
       <VodkaNav props={ edges }>
-        <article className="vodka-container">
+        <article className="vodka-container-mob">
+          <h2>{ vodka_name }</h2>
+          <img src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
+          <CSSTransition
+            in={ state }
+            timeout={ 200 }
+            unmountOnExit>
+              <section className="vodka-specs">
+                <div id="scrollable">
+                  <div className="clouse-win" onClick={ ()=> {setState(!state)} }></div>
+                  <h2>{ vodka_name }</h2>
+                  <ul >
+                    <li><span>Alkoholi:</span><p>{ vodka_alk }%</p></li>
+                    <li><span>Tilavuus:</span><p>{ vodka_bottle }L</p></li>
+                    <li><span>Pakkaus:</span><p>{ vodka_box }</p></li>
+                    <li><span>Aineosat:</span><p>{ vodka_ing }</p></li>
+                    <li><span>Valmistaja:</span><p>{ vodka_made }</p></li>
+                    <li><span>EAN koodi:</span><p>{ vodka_ean }</p></li>
+                    <li><span>Varasto:</span><p>{ vodka_warehouse }</p></li>
+                  </ul>
+                  { documentToReactComponents(vodka_history.json, options) }
+                  { vodka_license && <section className="vodka-licence">
+                    <p>Tuotettu lisenssisopimuksen perusteella BAIKAL, LLC: n kanssa.</p>
+                    <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
+                  </section>}
+                </div>
+              </section>
+          </CSSTransition>
+          <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>Tuotetiedot</button>
+      
+        </article> 
+           {/* ДЛЯ ПК  */}
+         <article className="vodka-container-pc">
           <img src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
           <section className="vodka-specs">
-            <div className={ state ? "vodka-box show" : "vodka-box"}>
+          <CSSTransition
+            in={ !state }
+            timeout={ 200 }
+            unmountOnExit>
+            <div className="vodka-box">
               <h2>{ vodka_name }</h2>
                 <ul >
                   <li><span>Alkoholi:</span><p>{ vodka_alk }%</p></li>
@@ -58,21 +93,25 @@ const VodkaPages = (props) => {
                   <li><span>EAN koodi:</span><p>{ vodka_ean }</p></li>
                   <li><span>Varasto:</span><p>{ vodka_warehouse }</p></li>
                 </ul> 
-            <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>Tuotetiedot</button>
+              <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>Vodkasta</button>
             </div>
-            <div className={ !state ? "vodka-box2 show" : "vodka-box2"}>
-              <h2>{ vodka_name }</h2>
-              { documentToReactComponents(vodka_history.json, options) }
+          </CSSTransition>
+          <CSSTransition
+            in={ state }
+            timeout={ 200 }
+            unmountOnExit>
+            <div className="vodka-box2">
+            <h2>{ vodka_name }</h2>
+                { documentToReactComponents(vodka_history.json, options) }
               <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>Tuotetiedot</button>
             </div>
-        
-
+          </CSSTransition>
           </section>
           { vodka_license && <section className="vodka-licence">
             <p>Tuotettu lisenssisopimuksen perusteella BAIKAL, LLC: n kanssa.</p>
             <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
           </section>}
-        </article>
+        </article> 
       </VodkaNav>
       </>
     )

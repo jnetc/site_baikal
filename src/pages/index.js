@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { CSSTransition } from 'react-transition-group'
 import { Link } from "gatsby"
 import SEO from "../components/seo"
@@ -23,27 +23,9 @@ const options = {
   },
 }
 
-
-class IndexPage extends React.Component {
-  state = {
-    show: false
-  }
-  render() {
-      // Show about page
-    const showAbout = () => {
-      this.setState(({ show }) => ({
-        show: !show
-      }))
-    }    
-      // Hide about page
-    const hideAbout = () => {
-      this.setState(({ show }) => ({
-        show: !show
-      }))
-    }
-  
-    const { title, question, aboutBaikal, logo } = this.props.data.contentfulMainPage
-    
+const  IndexPage = (props) =>  {
+    const [state, setState ] = useState(false)
+    const { title, question, aboutBaikal, logo } = props.data.contentfulMainPage
     return (
       <>
         <Head/>
@@ -55,24 +37,23 @@ class IndexPage extends React.Component {
           <Link className="redirect-link yes" to="/vodka/">Kyllä</Link>
           <Link className="redirect-link no" to="/limsa/">En</Link>
         </div>
-        <div id="show-about" onClick={ showAbout }>Baikalista</div>
+        <div id="show-about" onClick={ () => {setState(!state)} }>Baikalista</div>
         <CSSTransition
-          in={ this.state.show }
+          in={ state }
           timeout={ 500 }
           className="aboutPage_show"
           unmountOnExit>
           <div id="aboutPage" >
-            <div className="clouse-win" onClick={ hideAbout }></div>
-            <div id="scrolleble" >
-            <pre id="main-about-site">{ documentToReactComponents( aboutBaikal.json, options )}</pre> 
+            <div className="clouse-win" onClick={ ()=> {setState(!state)} }></div>
+            <div id="scrolleble">
+              <pre id="main-about-site">{ documentToReactComponents( aboutBaikal.json, options )}</pre> 
             </div>
           </div>
         </CSSTransition>
       </>
     )
   }
-  
-}
+
 
 
 export default IndexPage

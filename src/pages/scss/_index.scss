@@ -159,6 +159,7 @@ h1 {
   right: 15px;
   transition: all .3s ease-in-out;
   cursor: pointer;
+  user-select: none;
   &::before {
     content: '';
     width: 30px;

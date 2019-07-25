@@ -7,7 +7,7 @@
   @media screen and (min-width: 2500px){
     bottom: 70px;
   }
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 820px) {
     transform: scale(0.8) translateX(-50%);
   }
   transform: translateX(-50%);
@@ -29,7 +29,7 @@
 .fbl {
   left: 25%;
   opacity: .6;
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 820px) {
     transform: scale(0.6) translateX(-50%);
     bottom: -50px;
   }
@@ -91,7 +91,7 @@
   left: 83%;
   opacity: .7;
   bottom: 0px;
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 820px) {
     bottom: -10px;
     transform: scale(0.8) translateX(-50%);
   }
