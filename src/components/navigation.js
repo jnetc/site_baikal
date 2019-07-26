@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const VodkaNav = (props) => {
+const Navigator = (props) => {
     // Кол-во кнопок на продукцию
   console.log(props);
+  
+ 
   const buttons = props.props.map(btn => {    
     return <Link 
               key={ btn.node.pageID }
@@ -14,12 +16,13 @@ const VodkaNav = (props) => {
   })
   return (
       <>
-        { props.children }
-        <div id="nav-vodka">
-          { buttons }
+        <div 
+          id="nav-vodka" 
+          style={{ zIndex: "500"}}>
+            { buttons }
         </div>
       </>
   )
 }
 
-export default VodkaNav
+export default Navigator

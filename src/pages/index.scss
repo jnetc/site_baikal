@@ -25,11 +25,15 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
+    // padding: 100px;
     // margin: auto;
     color: $textcolor;
     // perspective: 200px;
-    z-index: 1000;
+    z-index: 150;
+    @media screen and (min-width: 820px) {
+      align-items: center;
+    }
   }
 }
 

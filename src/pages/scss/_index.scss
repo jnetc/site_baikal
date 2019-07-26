@@ -13,6 +13,7 @@
 h1 {
   font-size: $fs-xxl;
   font-weight: 400;
+  text-align: center;
   @media screen and (max-width: 750px) {
     font-size: $fs-l;
   }

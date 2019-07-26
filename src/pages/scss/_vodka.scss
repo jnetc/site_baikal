@@ -1,9 +1,13 @@
 p#about-vodka {
-  max-width: 640px;
+  max-width: 550px;
   margin-top: 40px;
   font-size: $fs-s;
   line-height: 23px;
   white-space: pre-wrap;
+  @media screen and (max-width: 750px) {
+    margin-left: 10px;
+    max-width: 70%;
+  }
 }
 h5#q-selection-v {
   max-width: 350px;

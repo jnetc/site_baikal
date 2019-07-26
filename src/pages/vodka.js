@@ -31,11 +31,9 @@ const mainVodka = (props) => {
     <>
       <Head/>
       <SEO title="Page two" />
-     <VodkaNav props={ edges }>
         <h1>{ main_vodka_title }</h1>
         { documentToReactComponents(about_vodka_txt.json, options) }
         <h5 id="q-selection-v">{ question_vodka }</h5>
-     </VodkaNav>
     </>
   )
 }

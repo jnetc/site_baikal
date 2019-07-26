@@ -38,11 +38,21 @@ const VodkaPages = (props) => {
     vodka_warehouse,
     vodka_history,
     vodka_img } = props.data.contentfulVodkaProduct
-  
+    
+    const mobShow = () => {
+      setState(!state)
+      document.querySelector('#nav-vodka').removeAttribute('style')
+    }
+    const mobHide = () => {
+      setState(!state)
+      setTimeout(() => {
+
+        document.querySelector('#nav-vodka').setAttribute('style', 'z-index: 500')
+      }, 200)
+    }
 
     return (
       <>
-      <VodkaNav props={ edges }>
         <article className="vodka-container-mob">
           <h2>{ vodka_name }</h2>
           <img src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
@@ -52,7 +62,7 @@ const VodkaPages = (props) => {
             unmountOnExit>
               <section className="vodka-specs">
                 <div id="scrollable">
-                  <div className="clouse-win" onClick={ ()=> {setState(!state)} }></div>
+                  <div className="clouse-win" onClick={ mobHide }></div>
                   <h2>{ vodka_name }</h2>
                   <ul >
                     <li><span>Alkoholi:</span><p>{ vodka_alk }%</p></li>
@@ -71,7 +81,7 @@ const VodkaPages = (props) => {
                 </div>
               </section>
           </CSSTransition>
-          <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>Tuotetiedot</button>
+          <button id="vodka-item-btn" onClick={ mobShow }>Tuotetiedot</button>
       
         </article> 
            {/* ДЛЯ ПК  */}
@@ -112,7 +122,6 @@ const VodkaPages = (props) => {
             <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
           </section>}
         </article> 
-      </VodkaNav>
       </>
     )
   }
@@ -123,33 +132,33 @@ export default VodkaPages
   // ДОЛЖЕН БЫТЬ pageID
   // contentfulVodkaProduct фильтруется по pageID
 export const query = graphql `
-query ( $pageID: String! ){
-  contentfulVodkaProduct (pageID:{eq: $pageID}) {
-    vodka_name,
-    vodka_alk,
-    vodka_box,
-    vodka_ing,
-    vodka_ean,
-    vodka_made,
-    vodka_bottle,
-    vodka_enough,
-    vodka_license,
-    vodka_warehouse,
-    vodka_history {
-      json
+  query ( $pageID: String! ){
+    contentfulVodkaProduct (pageID:{eq: $pageID}) {
+      vodka_name,
+      vodka_alk,
+      vodka_box,
+      vodka_ing,
+      vodka_ean,
+      vodka_made,
+      vodka_bottle,
+      vodka_enough,
+      vodka_license,
+      vodka_warehouse,
+      vodka_history {
+        json
+      }
+      vodka_img {
+        file {
+          url
+        }
+      }
     }
-    vodka_img {
-      file {
-        url
+    allContentfulVodkaProduct {
+      edges {
+        node {
+          pageID
+        }
       }
     }
   }
-  allContentfulVodkaProduct {
-    edges {
-      node {
-        pageID
-      }
-    }
-  }
-}
 `
