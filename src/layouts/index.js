@@ -6,15 +6,16 @@ import Background from '../components/background/'
 import Navigator from '../components/navigation'
 
 const Layout = (props) => {
-  const { allContentfulVodkaProduct } = props.data
+
+  console.log(props);
   return (
     <React.Fragment>
       <TransitionPage props={ props }>
         { props.children }
       </TransitionPage>
       <Background/>
-      { allContentfulVodkaProduct !== undefined &&  
-         <Navigator props={ allContentfulVodkaProduct.edges }/>}
+      { props.data.allContentfulVodkaProduct !== undefined &&  
+         <Navigator props={ props.data.allContentfulVodkaProduct.edges }/>}
     </React.Fragment>
   )
 }
