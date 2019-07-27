@@ -5,7 +5,7 @@
 }
 .transition-page-enter-done {
   opacity: 1;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
   transform: translateY(0px);
 }
 .transition-page-exit.transition-page-exit-active {
@@ -13,7 +13,7 @@
   transform: translateY(0px);
 }
 .transition-page-exit-done {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
   opacity: 0;
   transform: translateY(-25px);
 }

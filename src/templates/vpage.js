@@ -31,7 +31,6 @@ const VodkaPages = (props) => {
     vodka_ean,
     vodka_made,
     vodka_bottle,
-    vodka_enough,
     vodka_license,
     vodka_warehouse,
     vodka_history,
@@ -40,12 +39,14 @@ const VodkaPages = (props) => {
     const mobShow = () => {
       setState(!state)
       document.querySelector('#nav-vodka').removeAttribute('style')
+      document.querySelector('#info-block').removeAttribute('style')
     }
     const mobHide = () => {
       setState(!state)
       setTimeout(() => {
 
         document.querySelector('#nav-vodka').setAttribute('style', 'z-index: 500')
+        document.querySelector('#info-block').setAttribute('style', 'z-index: 500')
       }, 200)
     }
 
@@ -88,7 +89,7 @@ const VodkaPages = (props) => {
           <section className="vodka-specs">
           <CSSTransition
             in={ !state }
-            timeout={ 200 }
+            timeout={ 500 }
             unmountOnExit>
             <div className="vodka-box">
               <h2>{ vodka_name }</h2>
@@ -106,7 +107,7 @@ const VodkaPages = (props) => {
           </CSSTransition>
           <CSSTransition
             in={ state }
-            timeout={ 200 }
+            timeout={ 500 }
             unmountOnExit>
             <div className="vodka-box2">
             <h2>{ vodka_name }</h2>
@@ -143,7 +144,6 @@ export const query = graphql `
       vodka_ean,
       vodka_made,
       vodka_bottle,
-      vodka_enough,
       vodka_license,
       vodka_warehouse,
       vodka_history {

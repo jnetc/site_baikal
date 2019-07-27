@@ -1,0 +1,49 @@
+ul#info-block {
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  opacity: 0;
+  transform: translateY(-50%);
+  border: 2px dashed $textcolor;
+  border-radius: 10px;
+  color: $textcolor;
+  transition: all .3s ease-in-out;
+  animation: showInfo .3s ease-in-out forwards;
+  animation-delay: .5s;
+  @media screen and (max-width: 750px) {
+    padding: 0;
+    display: flex;
+    top: 30px;
+    right: 10px;
+    left: auto;
+    border: none;
+  }
+  &:hover {
+    border-color: $deep-blue;
+    @media screen and (max-width: 750px) {
+      box-shadow: none;
+    }
+    box-shadow: 0px 5px 10px rgba($deep-blue, .2);
+  }
+  li {
+    margin: 8px 0;
+  }
+  span {
+    color: $textcolor;
+    font-size: $fs-m;
+    cursor: pointer;
+    @media screen and (max-width: 750px) {
+      font-size: $fs-s;
+    }
+    transition: all .3s ease-in-out;
+    &:hover {
+      color: $deep-blue;
+    }
+  }
+}
+
+@keyframes showInfo {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(-50%); }
+}

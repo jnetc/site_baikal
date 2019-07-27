@@ -4,7 +4,7 @@ img#head-logo {
   top: 15px;
   left: 15px;
   opacity: 0;
-  animation: show .3s ease-in-out forwards;
+  animation: showLogo .3s ease-in-out forwards;
   animation-delay: .5s;
   @media screen and (max-width: 750px){
     width: 80px;
@@ -13,7 +13,7 @@ img#head-logo {
   }
 }
 
-@keyframes show {
+@keyframes showLogo {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0px); }
 }
