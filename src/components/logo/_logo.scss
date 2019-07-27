@@ -1,0 +1,19 @@
+img#head-logo {
+  width: 100px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  opacity: 0;
+  animation: show .3s ease-in-out forwards;
+  animation-delay: .5s;
+  @media screen and (max-width: 750px){
+    width: 80px;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+@keyframes show {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}

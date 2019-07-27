@@ -6,6 +6,7 @@ export default class Head extends React.Component {
     return (
       <Helmet>          
         <meta charSet="utf-8" />
+        <meta http-equiv="ScreenOrientation" content="autoRotate:disabled"></meta>
         <title>Baikal site</title>
       </Helmet>
     )

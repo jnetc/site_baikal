@@ -26,11 +26,9 @@ article.vodka-container-pc {
     opacity: 1;
     width: 100%;
     position: absolute;
-    // transform: translateX(50px);
     transition: all .5s ease-in-out;
     @media screen and (max-width: 750px) {
       position: relative;
-      // display: none;
     }
   }
   .vodka-box {
@@ -96,12 +94,6 @@ article.vodka-container-pc {
   }
 }
 
-
-
-
-
-
-
 #vodka-item-btn {
   display: flex;
   justify-content: center;
@@ -145,7 +137,6 @@ article.vodka-container-pc {
     z-index: -1;
   }
   &:hover {
-    // color: $bg-gradient-finely;
     border: 2px solid transparent;
     background: $deep-blue;
     box-shadow: 15px 25px 15px rgba($deep-blue, .3);
@@ -157,11 +148,8 @@ article.vodka-container-pc {
 }
 
 
-
-
-
 ///////////////////////////////////////////////////
-//////////////////  750px ////////////////////////
+//////////////////  820px ////////////////////////
 /////////////////
 
 
@@ -173,7 +161,6 @@ article.vodka-container-mob {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  // overflow: hidden;
   position: relative;
   @media screen and (min-width: 820px) {
    display: none;

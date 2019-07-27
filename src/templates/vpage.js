@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby';
-import VodkaNav from '../components/vodka-nav'
 import { CSSTransition } from 'react-transition-group'
-
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -24,7 +22,7 @@ const VodkaPages = (props) => {
     // Кол-во кнопок на продукцию
     // Оборачиваем данные в навигацию
     // Передаем название линков для роутинга
-  const { edges } = props.data.allContentfulVodkaProduct
+  // const { edges } = props.data.allContentfulVodkaProduct
   const { 
     vodka_name,
     vodka_alk,
@@ -131,6 +129,10 @@ export default VodkaPages
   // ЗДЕСЬ КАК И В GATSBY-NODE.JS
   // ДОЛЖЕН БЫТЬ pageID
   // contentfulVodkaProduct фильтруется по pageID
+
+  // ВНИМАНИЕ!!! - исправляет ошибку
+  // Error: The result of this StaticQuery could not be fetched.
+  // ИСПОЛЬЗУЕМ ВНЕ КОМПОНЕНТОВ
 export const query = graphql `
   query ( $pageID: String! ){
     contentfulVodkaProduct (pageID:{eq: $pageID}) {
@@ -150,13 +152,6 @@ export const query = graphql `
       vodka_img {
         file {
           url
-        }
-      }
-    }
-    allContentfulVodkaProduct {
-      edges {
-        node {
-          pageID
         }
       }
     }

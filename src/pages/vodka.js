@@ -2,14 +2,13 @@ import React from "react"
 import SEO from "../components/seo"
 import Head from '../components/head'
 import { graphql } from 'gatsby'
-import VodkaNav from '../components/vodka-nav'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
   // Options for "RICH TEXT"
 const Bold = ({ children }) => <b>{children}</b>
 const Text = ({ children }) => <p id="about-vodka" className="align-center">{children}</p>
-
+// Options for "RICH TEXT"
 const options = {
   renderMark: {
     [MARKS.BOLD]: text => <Bold>{text}</Bold>,
@@ -26,7 +25,6 @@ const mainVodka = (props) => {
     // Кол-во кнопок на продукцию
     // Оборачиваем данные в навигацию
     // Передаем название линков для роутинга
-  const { edges } = props.data.allContentfulVodkaProduct
   return (
     <>
       <Head/>
@@ -42,6 +40,11 @@ export default mainVodka
   // GraphQl
   // ЗДЕСЬ КАК И В GATSBY-NODE.JS
   // ДОЛЖЕН БЫТЬ pageID
+  // contentfulVodkaProduct фильтруется по pageID
+
+  // ВНИМАНИЕ!!! - исправляет ошибку
+  // Error: The result of this StaticQuery could not be fetched.
+  // ИСПОЛЬЗУЕМ ВНЕ КОМПОНЕНТОВ
 export const query = graphql `
 query {
   contentfulVodkaMain {
@@ -49,13 +52,6 @@ query {
     question_vodka,
     about_vodka_txt {
       json
-    }
-  }
-  allContentfulVodkaProduct {
-    edges {
-      node {
-        pageID
-      }
     }
   }
 }

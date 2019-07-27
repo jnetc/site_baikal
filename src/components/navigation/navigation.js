@@ -1,9 +1,21 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
-const Navigator = (props) => {
+const Navigation = (props) => {
     // Кол-во кнопок на продукцию
-  const buttons = props.props.map(btn => {    
+    const data = useStaticQuery(graphql `
+      query {
+        allContentfulVodkaProduct {
+          edges {
+            node {
+              pageID
+            }
+          }
+        }
+      }
+    `)
+  const { edges } = data.allContentfulVodkaProduct
+  const buttons = edges.map(btn => {    
     return <Link 
               key={ btn.node.pageID }
               to={`/vodka/${ btn.node.pageID }`} 
@@ -22,4 +34,4 @@ const Navigator = (props) => {
   )
 }
 
-export default Navigator
+export default Navigation
