@@ -19,15 +19,9 @@ ul#info-block {
     left: auto;
     border: none;
   }
-  &:hover {
-    border-color: $deep-blue;
-    @media screen and (max-width: 750px) {
-      box-shadow: none;
-    }
-    box-shadow: 0px 5px 10px rgba($deep-blue, .2);
-  }
   li {
     margin: 8px 0;
+    position: relative;
   }
   span {
     color: $textcolor;
@@ -41,6 +35,46 @@ ul#info-block {
       color: $deep-blue;
     }
   }
+  .tooltip {
+    width: 200px;
+    padding: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    opacity: 0;
+    font-size: 14px;
+    text-align: center;
+    color: $textcolor;
+    background: $deep-blue;
+    border-radius: 10px;
+    transform: translate(-15px, -50%) scale(0);
+    transform-origin: left center;
+    transition: all .3s ease-in-out;
+    &.txt {
+      min-width: 200px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -8px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 7px 8px 7px 0;
+      border-color: transparent $deep-blue transparent transparent;
+      transform: translateY(-50%);
+    }
+    @media screen and (max-width: 750px) {
+      display: none;
+    }
+  }
+  :hover .tooltip {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
+
 }
 
 @keyframes showInfo {

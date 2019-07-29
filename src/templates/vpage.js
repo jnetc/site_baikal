@@ -35,7 +35,7 @@ const VodkaPages = (props) => {
     vodka_warehouse,
     vodka_history,
     vodka_img } = props.data.contentfulVodkaProduct
-    
+        
     const mobShow = () => {
       setState(!state)
       document.querySelector('#nav-vodka').removeAttribute('style')
