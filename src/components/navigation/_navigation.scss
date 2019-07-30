@@ -28,12 +28,30 @@
   color: $textcolor;
   text-shadow: 15px 25px 4px rgba($deep-blue, .1);
   border-radius: 50%;
-  border: 2px solid rgba($textcolor, .4);
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
   background: linear-gradient(155deg, rgba($textcolor, .2) 0%, rgba($textcolor, .2) 50%, rgba($textcolor, 0.03) 50.01%, rgba($textcolor, 0.03) 100%);
   box-shadow: 15px 25px 15px rgba($deep-blue, 0);
-  transform: scale(1);
+  // transform: scale(1);
   transition: all .3s ease-in-out;
+  animation: infobtnanim .3s ease-in-out forwards;
   user-select: none;
+  &:nth-of-type(1) {
+    animation-delay: 2s;
+  }
+  &:nth-of-type(2) {
+    animation-delay: 2.3s;
+  }
+  &:nth-of-type(3) {
+    animation-delay: 2.6s;
+  }
+  &:nth-of-type(4) {
+    animation-delay: 2.9s;
+  }
+  &:nth-of-type(5) {
+    animation-delay: 3.2s;
+  }
   @media screen and (max-width: 750px) {
     width: 50px;
     height: 50px;
@@ -58,7 +76,7 @@
     // ACTIVE CLASS
   &.vodka-selected {
     box-shadow: 15px 25px 15px rgba($deep-blue, .3);
-    border: 2px solid transparent;
+    border-width: 0;
     background: $deep-blue;
     &::after {
       box-shadow: none;
@@ -67,7 +85,7 @@
   }
   &:hover {
     box-shadow: 15px 25px 15px rgba($deep-blue, .3);
-    border: 2px solid transparent;
+    border-width: 0;
     background: $deep-blue;
     &::after {
       box-shadow: none;
@@ -90,7 +108,7 @@
   &.icon-icevodka {
     font-size: $fs-xl;
     @media screen and (max-width: 750px) {
-    font-size: $fs-l;
+    font-size: $fs-m;
     } 
   }
   &.icon-honeywithpepper {
@@ -105,4 +123,11 @@
     font-size: $fs-l;
     }
   }
+}
+
+
+@keyframes infobtnanim {
+  0% { transform: scale(1) translateX(0px); border-color: transparent;}
+  50% { transform: scale(1.2) translateX(-15px); border-color: $deep-blue;}
+  100% {  transform: scale(1) translateX(0px); border-color: rgba($textcolor, 0.2);}
 }

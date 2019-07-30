@@ -21,7 +21,8 @@ const Navigation = (props) => {
               key={ btn.node.pageID }
               to={`/vodka/${ btn.node.pageID }`} 
               activeClassName="vodka-selected"
-              className={`vodka-btn icon-${ btn.node.pageID }`}>
+              className={`vodka-btn icon-${ btn.node.pageID }`}
+              title={ btn.node.vodka_name }>
             </Link>
   })
   return (
