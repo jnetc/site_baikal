@@ -1,19 +1,52 @@
 p#about-vodka {
-  max-width: 550px;
-  margin-top: 40px;
+  max-width: 700px;
+  margin: 40px auto 0;
   font-size: $fs-s;
   line-height: 23px;
   white-space: pre-wrap;
-  @media screen and (max-width: 750px) {
-    margin-left: 10px;
+  text-align: center;
+  @media screen and (max-width: 920px) {
     max-width: 70%;
+    font-size: $fs-xs;
+  }
+  @media screen and (max-width: 420px) {
+    margin-left: 10px;
   }
 }
 h5#q-selection-v {
   max-width: 350px;
-  margin-top: 60px;
+  margin: 60px auto 40px;
   font-size: $fs-s;
   text-align: center;
   font-weight: 400;
+  @media screen and (max-width: 420px) {
+    max-width: 250px;
+    margin-left: 10px;
+    // text-align: left;
+    font-size: $fs-xs;
+  }
 }
 
+#select-items {
+  max-width: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+  }
+  i {
+    font-size: $fs-s;
+    &.icon-honeywithpepper {
+      font-size: $fs-l;
+    }
+    &.icon-cranberry {
+      font-size: $fs-m;
+    }
+  }
+}

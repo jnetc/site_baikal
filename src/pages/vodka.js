@@ -21,17 +21,23 @@ const options = {
 
 const mainVodka = (props) => {
     // Содержание страницы
+    console.log(props);
+    
   const { main_vodka_title, question_vodka, about_vodka_txt } = props.data.contentfulVodkaMain
-    // Кол-во кнопок на продукцию
-    // Оборачиваем данные в навигацию
-    // Передаем название линков для роутинга
+  const { edges } = props.data.allContentfulVodkaProduct
+  const listOfNames = edges.map(item => {
+    return <li key={ item.node.pageID }><i className={`icon-${item.node.pageID}`}></i><span>{item.node.vodka_name}</span></li>
+  })
   return (
     <>
       <Head/>
       <SEO title="Page two" />
-        <h1>{ main_vodka_title }</h1>
+        {/* <h1>{ main_vodka_title }</h1> */}
         { documentToReactComponents(about_vodka_txt.json, options) }
         <h5 id="q-selection-v">{ question_vodka }</h5>
+        <ul id="select-items">
+          { listOfNames }
+        </ul>
     </>
   )
 }
@@ -52,6 +58,14 @@ query {
     question_vodka,
     about_vodka_txt {
       json
+    }
+  }
+  allContentfulVodkaProduct {
+    edges {
+      node {
+        pageID
+        vodka_name
+      }
     }
   }
 }

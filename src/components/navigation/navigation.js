@@ -9,6 +9,7 @@ const Navigation = (props) => {
           edges {
             node {
               pageID
+              vodka_name
             }
           }
         }

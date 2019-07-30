@@ -201,7 +201,10 @@ article.vodka-container-mob {
     opacity: 1;
     z-index: 5005;
   }
-
+  ul {
+    width: 95%;
+    margin: 0 auto;
+  }
   li {
     display: flex;
     align-items: center;
@@ -216,6 +219,12 @@ article.vodka-container-mob {
     }
   }
   #vodka-history {
+    width: 95%;
+    margin: 20px auto;
     line-height: $fs-s;
+  }
+  .vodka-licence {
+    width: 95%;
+    margin: 0 auto;
   }
 }

@@ -8,6 +8,9 @@
   transform: translateY(-50%);
   animation: show .3s ease-in-out forwards;
   animation-delay: .5s;
+  @media screen and (max-width: 750px) {
+   right: 10px;
+  }
 }
 
 @keyframes show {
@@ -32,8 +35,8 @@
   transition: all .3s ease-in-out;
   user-select: none;
   @media screen and (max-width: 750px) {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
   &::after {
     content: '';
@@ -76,30 +79,30 @@
     font-size: $fs-xl;
     @media screen and (max-width: 750px) {
     font-size: $fs-l;
-  }
+    }
   }
   &.icon-pinenut {
     font-size: $fs-xl;
     @media screen and (max-width: 750px) {
     font-size: $fs-l;
-  }
+    }
   }
   &.icon-icevodka {
     font-size: $fs-xl;
     @media screen and (max-width: 750px) {
     font-size: $fs-l;
-  }
+    } 
   }
   &.icon-honeywithpepper {
     font-size: $fs-xxl;
     @media screen and (max-width: 750px) {
     font-size: $fs-xl;
-  }
+    }
   }
   &.icon-cranberry {
     font-size: $fs-xl;
     @media screen and (max-width: 750px) {
     font-size: $fs-l;
-  }
+    }
   }
 }
