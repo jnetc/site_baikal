@@ -30,23 +30,29 @@ h5#q-selection-v {
 #select-items {
   max-width: 550px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
+  flex-direction: column;
   flex-wrap: wrap;
   margin: 0 auto;
   li {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     padding: 2px;
   }
   i {
+    width: 50px;
     font-size: $fs-s;
+    position: relative;
+    left: 3px;
     &.icon-honeywithpepper {
       font-size: $fs-l;
+      left: 0;
     }
     &.icon-cranberry {
       font-size: $fs-m;
+      left: 1px;
     }
   }
 }
