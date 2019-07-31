@@ -5,6 +5,8 @@ import { graphql } from 'gatsby'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+import Contacts from '../components/contacts'
+
   // Options for "RICH TEXT"
 const Bold = ({ children }) => <b>{children}</b>
 const Text = ({ children }) => <p id="about-vodka" className="align-center">{children}</p>
@@ -38,6 +40,7 @@ const mainVodka = (props) => {
         <ul id="select-items">
           { listOfNames }
         </ul>
+        <Contacts/>
     </>
   )
 }

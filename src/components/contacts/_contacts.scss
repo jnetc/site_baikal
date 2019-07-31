@@ -6,13 +6,12 @@ ul.info-block {
   border: 2px dashed $textcolor;
   border-radius: 10px;
   color: $textcolor;
-  transform: translateY(-150px);
+  // transform: translateY(-150px);
   transition: all .3s ease-in-out;
   animation: showInfo .3s ease-in-out forwards;
   animation-delay: .5s;
   @media screen and (max-width: 750px) {
     padding: 0;
-    display: flex;
     top: 30px;
     right: 10px;
     left: auto;
@@ -38,22 +37,26 @@ ul.info-block {
 }
 
 
-.info-block.enter.enter-active {
-  opacity: 0;
-  transform: translateY(200px);
-}
-.info-block.enter-done {
-  opacity: 1;
-  transform: translateY(0);
-}
-.info-block.exit.exit-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.info-block.exit-done {
-  opacity: 0;
-  transform: translateY(200px);
-}
+// .info-block.enter.enter-active {
+//   display: none;
+//   opacity: 0;
+//   transform: translateY(200px);
+// }
+// .info-block.enter-done {
+//   display: flex;
+//   opacity: 1;
+//   transform: translateY(0);
+// }
+// .info-block.exit.exit-active {
+//   display: flex;
+//   opacity: 1;
+//   transform: translateY(0);
+// }
+// .info-block.exit-done {
+//   display: none;
+//   opacity: 0;
+//   transform: translateY(200px);
+// }
 
 // @keyframes showInfo {
 //   0% { opacity: 0; transform: translateY(20px); }
