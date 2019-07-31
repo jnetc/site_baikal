@@ -23,7 +23,7 @@ const mainVodka = (props) => {
     // Содержание страницы
     console.log(props);
     
-  const { main_vodka_title, question_vodka, about_vodka_txt } = props.data.contentfulVodkaMain
+  const { vodka_logo, question_vodka, about_vodka_txt } = props.data.contentfulVodkaMain
   const { edges } = props.data.allContentfulVodkaProduct
   const listOfNames = edges.map(item => {
     return <li key={ item.node.pageID }><i className={`icon-${item.node.pageID}`}></i><span>{item.node.vodka_name}</span></li>
@@ -32,7 +32,7 @@ const mainVodka = (props) => {
     <>
       <Head/>
       <SEO title="Page two" />
-        {/* <h1>{ main_vodka_title }</h1> */}
+        <img id="vodka-main-logo" src={ vodka_logo.file.url } alt="logo"/>
         { documentToReactComponents(about_vodka_txt.json, options) }
         <h5 id="q-selection-v">{ question_vodka }</h5>
         <ul id="select-items">
@@ -54,8 +54,12 @@ export default mainVodka
 export const query = graphql `
 query {
   contentfulVodkaMain {
-    main_vodka_title,
     question_vodka,
+    vodka_logo {
+      file {
+        url
+      }
+    }
     about_vodka_txt {
       json
     }

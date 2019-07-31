@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { CSSTransition } from 'react-transition-group'
+import React from "react"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import './index.scss'
@@ -24,7 +23,6 @@ const options = {
 }
 
 const  IndexPage = (props) =>  {
-    const [state, setState ] = useState(false)
     const { title, question, aboutBaikal, logo } = props.data.contentfulMainPage
     return (
       <>
@@ -32,24 +30,12 @@ const  IndexPage = (props) =>  {
         <SEO title="Home" />
         <img id="logo-baikal" src={ logo.file.url } alt="logo"/>
         <h1>{ title }</h1>
+        <pre id="main-about-site">{ documentToReactComponents( aboutBaikal.json, options )}</pre> 
         <p id="redirect">{ question }</p>
         <div id="redirect-btns">
           <Link className="redirect-link yes" to="/vodka/">Kyllä</Link>
           <Link className="redirect-link no" to="/limsa/">En</Link>
         </div>
-        <div id="show-about" onClick={ () => {setState(!state)} }>Baikalista</div>
-        <CSSTransition
-          in={ state }
-          timeout={ 500 }
-          className="aboutPage_show"
-          unmountOnExit>
-          <div id="aboutPage" >
-            <div className="clouse-win" onClick={ ()=> {setState(!state)} }></div>
-            <div id="scrolleble">
-              <pre id="main-about-site">{ documentToReactComponents( aboutBaikal.json, options )}</pre> 
-            </div>
-          </div>
-        </CSSTransition>
       </>
     )
   }

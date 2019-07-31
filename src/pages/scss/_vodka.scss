@@ -1,10 +1,15 @@
+#vodka-main-logo {
+  width: 330px;
+  margin: 0 auto;
+}
+
 p#about-vodka {
   max-width: 700px;
   margin: 40px auto 0;
   font-size: $fs-s;
   line-height: 23px;
   white-space: pre-wrap;
-  text-align: center;
+  // text-align: center;
   @media screen and (max-width: 920px) {
     max-width: 70%;
     font-size: $fs-xs;

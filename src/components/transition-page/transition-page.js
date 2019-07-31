@@ -3,9 +3,12 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import './transition-page.scss'
 
 const TransitionPage = ({ props }) => {
-  const { location, children } = props  
+  console.log(props);
+  
+  const { location, children } = props
+  const path =  location.pathname.split('/').splice(1, 1)[0];
   return (
-    <TransitionGroup component={'main'}>
+    <TransitionGroup component={'main'} id={ path === "vodka" && "vodka" }>
       <CSSTransition
         key={ location.pathname }
         timeout={ 500 }

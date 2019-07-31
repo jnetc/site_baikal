@@ -1,13 +1,12 @@
-ul#info-block {
+ul.info-block {
+  display: flex;
+  flex-shrink: 1;
   padding: 10px;
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  opacity: 0;
-  transform: translateY(-50%);
+  margin-bottom: 10%;
   border: 2px dashed $textcolor;
   border-radius: 10px;
   color: $textcolor;
+  transform: translateY(-150px);
   transition: all .3s ease-in-out;
   animation: showInfo .3s ease-in-out forwards;
   animation-delay: .5s;
@@ -23,7 +22,7 @@ ul#info-block {
     margin: 8px 0;
     position: relative;
   }
-  span {
+  i {
     color: $textcolor;
     font-size: $fs-m;
     cursor: pointer;
@@ -35,49 +34,28 @@ ul#info-block {
       color: $deep-blue;
     }
   }
-  .tooltip {
-    width: 200px;
-    padding: 15px;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 60px;
-    opacity: 0;
-    font-size: 14px;
-    text-align: center;
-    color: $textcolor;
-    background: $deep-blue;
-    border-radius: 10px;
-    transform: translate(-15px, -50%) scale(0);
-    transform-origin: left center;
-    transition: all .3s ease-in-out;
-    &.txt {
-      min-width: 200px;
-    }
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: -8px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 7px 8px 7px 0;
-      border-color: transparent $deep-blue transparent transparent;
-      transform: translateY(-50%);
-    }
-    @media screen and (max-width: 750px) {
-      display: none;
-    }
-  }
-  :hover .tooltip {
-    opacity: 1;
-    transform: translate(0, -50%) scale(1);
-  }
 
 }
 
-@keyframes showInfo {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(-50%); }
+
+.info-block.enter.enter-active {
+  opacity: 0;
+  transform: translateY(200px);
 }
+.info-block.enter-done {
+  opacity: 1;
+  transform: translateY(0);
+}
+.info-block.exit.exit-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.info-block.exit-done {
+  opacity: 0;
+  transform: translateY(200px);
+}
+
+// @keyframes showInfo {
+//   0% { opacity: 0; transform: translateY(20px); }
+//   100% { opacity: 1; transform: translateY(-50%); }
+// }

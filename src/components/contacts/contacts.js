@@ -27,27 +27,27 @@ const Contacts = () => {
 
 
   return (
-    <ul id="info-block" style={{ zIndex: "500"}}>
+    <ul className="info-block" style={{ zIndex: "500"}}>
       <li className="info-box">
         <a href={`mailto: ${ email }`}>
-          <span className="icon-email" title={ email }></span>
+          <i className="icon-email" title={ email }></i>
         </a>
       </li>
       { facebook !== undefined && 
         <li className="info-box">
           <a href={ facebook }>
-            <span className="icon-face" title={ cutFacebook }></span>
+            <i className="icon-face" title={ cutFacebook }></i>
           </a>
         </li> }
       
       <li className="info-box">
         <a href={ geo }>
-          <span className="icon-geo" title={ address.address }></span>
+          <i className="icon-geo" title={ address.address }></i>
         </a>
       </li>
       <li className="info-box">
         <a href={`tel: ${ tel }`}>
-          <span className="icon-phone" title={ tel }></span>
+          <i className="icon-phone" title={ tel }></i>
         </a>
       </li>
     </ul>
