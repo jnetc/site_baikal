@@ -1,11 +1,17 @@
 ul.info-block {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
   display: flex;
+  flex-direction: column;
+  // margin: 20px auto;
   flex-shrink: 1;
-  padding: 10px;
-  margin-bottom: 10%;
+  padding: 20px;
+  // margin-bottom: 10%;
   border: 2px dashed $textcolor;
   border-radius: 10px;
   color: $textcolor;
+  background: rgba($deep-blue, .7);
   // transform: translateY(-150px);
   transition: all .3s ease-in-out;
   animation: showInfo .3s ease-in-out forwards;
@@ -18,22 +24,31 @@ ul.info-block {
     border: none;
   }
   li {
-    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
     position: relative;
   }
-  i {
+  a {
+    display: flex;
+    align-items: baseline;
     color: $textcolor;
-    font-size: $fs-m;
+  }
+  i {
+    margin-right: 4px;
+    position: relative;
+    top: 0px;
+    color: $textcolor;
+    font-size: $fs-xs;
     cursor: pointer;
     @media screen and (max-width: 750px) {
-      font-size: $fs-s;
+      font-size: $fs-xs;
     }
     transition: all .3s ease-in-out;
     &:hover {
       color: $deep-blue;
     }
   }
-
 }
 
 

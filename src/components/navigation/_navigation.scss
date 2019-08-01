@@ -1,42 +1,87 @@
-#nav-vodka {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  opacity: 0;
-  transform: translateY(-50%);
-  animation: show .3s ease-in-out forwards;
-  animation-delay: .5s;
-  @media screen and (max-width: 750px) {
-   right: 10px;
-  }
-}
-
-@keyframes show {
-  0% { opacity: 0; transform: translateY(-60%);}
-  100% { opacity: 1; transform: translateY(-50%); }
-}
 .vodka-btn {
-  width: 70px;
-  height: 70px;
+  min-width: 300px; 
+  // height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   margin: 10px;
+  padding: 10px;
   color: $textcolor;
   text-shadow: 15px 25px 4px rgba($deep-blue, .1);
-  border-radius: 50%;
+  border-radius: 10px;
   border-width: 2px;
   border-style: solid;
-  border-color: transparent;
-  background: linear-gradient(155deg, rgba($textcolor, .2) 0%, rgba($textcolor, .2) 50%, rgba($textcolor, 0.03) 50.01%, rgba($textcolor, 0.03) 100%);
+  border-color: rgba($textcolor, 0.2);
   box-shadow: 15px 25px 15px rgba($deep-blue, 0);
-  // transform: scale(1);
   transition: all .3s ease-in-out;
-  animation: infobtnanim .3s ease-in-out forwards;
+  animation: infobtnanim .5s ease-in-out forwards;
   user-select: none;
+  > p {
+    font-size: $fs-xs;
+    font-weight: bold;
+  }
+  > span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    overflow: hidden;
+    &::before {
+      content: '';
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background: linear-gradient(155deg, rgba($deep-blue, .7) 0%, rgba($deep-blue, .7) 30%, rgba($textcolor, 0.2) 30.01%, rgba($textcolor, 0.2) 60%, rgba($textcolor, 0.03) 60.01%, rgba($textcolor, 0.03) 100%);
+      transform: translate(-50px, -325px);
+      transition: all .3s ease-in-out;
+      z-index: -1;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    width: 50px;
+    height: 50px;
+  }
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    border-radius: inherit;
+    background-color: rgba($deep-blue, .05);
+    box-shadow: inset 0px 0px 5px 2px rgba($deep-blue, .05),
+                      0px 0px 5px 2px rgba($deep-blue, .05);
+    transition: all .3s ease-in-out;
+    user-select: none;
+    cursor: default;
+    pointer-events: none;
+    z-index: -1;
+  }
+    // ACTIVE CLASS
+  &.vodka-selected {
+    box-shadow: 15px 25px 15px rgba($deep-blue, .3);
+    &::after {
+      box-shadow: none;
+      background: transparent;
+    }
+    > span::before {
+      transform: translate(-50px, 0px);
+    }
+  }
+  &:hover {
+    box-shadow: 15px 25px 15px rgba($deep-blue, .3);
+    &::after {
+      box-shadow: none;
+      background: transparent;
+    }
+    > span::before {
+      transform: translate(-50px, 0px);
+    }
+  }
   &:nth-of-type(1) {
     animation-delay: 2s;
   }
@@ -52,82 +97,11 @@
   &:nth-of-type(5) {
     animation-delay: 3.2s;
   }
-  @media screen and (max-width: 750px) {
-    width: 50px;
-    height: 50px;
-  }
-  &::after {
-    content: '';
-    width: inherit;
-    height: inherit;
-    position: absolute;
-    top: 25px;
-    left: 15px;
-    border-radius: inherit;
-    background-color: rgba($deep-blue, .05);
-    box-shadow: inset 0px 0px 5px 2px rgba($deep-blue, .15),
-                      0px 0px 5px 2px rgba($deep-blue, .15);
-    transition: all .3s ease-in-out;
-    user-select: none;
-    cursor: default;
-    pointer-events: none;
-    z-index: -1;
-  }
-    // ACTIVE CLASS
-  &.vodka-selected {
-    box-shadow: 15px 25px 15px rgba($deep-blue, .3);
-    border-width: 0;
-    background: $deep-blue;
-    &::after {
-      box-shadow: none;
-      background: transparent;
-    }
-  }
-  &:hover {
-    box-shadow: 15px 25px 15px rgba($deep-blue, .3);
-    border-width: 0;
-    background: $deep-blue;
-    &::after {
-      box-shadow: none;
-      background: transparent;
-    }
-  }
-
-  &.icon-classic {
-    font-size: $fs-xl;
-    @media screen and (max-width: 750px) {
-    font-size: $fs-l;
-    }
-  }
-  &.icon-pinenut {
-    font-size: $fs-xl;
-    @media screen and (max-width: 750px) {
-    font-size: $fs-l;
-    }
-  }
-  &.icon-icevodka {
-    font-size: $fs-xl;
-    @media screen and (max-width: 750px) {
-    font-size: $fs-m;
-    } 
-  }
-  &.icon-honeywithpepper {
-    font-size: $fs-xxl;
-    @media screen and (max-width: 750px) {
-    font-size: $fs-xl;
-    }
-  }
-  &.icon-cranberry {
-    font-size: $fs-xl;
-    @media screen and (max-width: 750px) {
-    font-size: $fs-l;
-    }
-  }
 }
 
 
 @keyframes infobtnanim {
-  0% { transform: scale(1) translateX(0px); border-color: transparent;}
-  50% { transform: scale(1.2) translateX(-15px); border-color: $deep-blue;}
-  100% {  transform: scale(1) translateX(0px); border-color: rgba($textcolor, 0.2);}
+  0% { transform: scale(1) translateX(0px); background: transparent; }
+  50% { transform: scale(1.1) translateX(0px); background: rgba($deep-blue, 1); }
+  100% {  transform: scale(1) translateX(0px); background: transparent; }
 }

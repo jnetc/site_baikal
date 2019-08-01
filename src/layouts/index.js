@@ -1,5 +1,4 @@
 import React from 'react'
-import { CSSTransition } from  'react-transition-group'
 import TransitionPage from '../components/transition-page/'
 import Background from '../components/background/'
 import Navigation from '../components//navigation'
@@ -14,7 +13,7 @@ const Layout = (props) => {
         { props.children }
       </TransitionPage>
       <Background/>
-      { path === "vodka" && <Navigation/> }  
+      {/* { path === "vodka" && <Navigation/> }   */}
     </React.Fragment>
   )
 }

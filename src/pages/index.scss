@@ -17,7 +17,6 @@
 }
 
 main {
-  position: relative;
   display: flex;
   // margin-bottom: 15%;
   flex-grow: 1;
@@ -33,6 +32,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
     // align-items: center;
     // padding: 100px;
     // margin: auto;
