@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby'
 import { CSSTransition } from 'react-transition-group'
+import Contacts from '../components/contacts'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -22,7 +23,7 @@ const VodkaPages = (props) => {
     // Кол-во кнопок на продукцию
     // Оборачиваем данные в навигацию
     // Передаем название линков для роутинга
-  // const { edges } = props.data.allContentfulVodkaProduct
+  const { edges } = props.data.allContentfulVodkaProduct
   const { 
     vodka_name,
     vodka_alk,
@@ -36,55 +37,37 @@ const VodkaPages = (props) => {
     vodka_history,
     vodka_img } = props.data.contentfulVodkaProduct
         
+    console.log(edges);
+    const buttons = edges.map(btn => {
+      const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
+        
+      return <Link 
+                key={ btn.node.pageID }
+                to={`/vodka/${ btn.node.pageID }`} 
+                activeClassName="vodka-selected"
+                className="vodka-btn"
+                title={ btn.node.vodka_name }>
+                <p>{ removeOriginal }</p>
+                <span></span>
+              </Link>
+      })
+
     const mobShow = () => {
       setState(!state)
-      document.querySelector('#nav-vodka').removeAttribute('style')
-      document.querySelector('#info-block').removeAttribute('style')
+      // document.querySelector('#nav-vodka').removeAttribute('style')
+      // document.querySelector('#info-block').removeAttribute('style')
     }
     const mobHide = () => {
       setState(!state)
       setTimeout(() => {
 
-        document.querySelector('#nav-vodka').setAttribute('style', 'z-index: 500')
-        document.querySelector('#info-block').setAttribute('style', 'z-index: 500')
+        // document.querySelector('#nav-vodka').setAttribute('style', 'z-index: 500')
+        // document.querySelector('#info-block').setAttribute('style', 'z-index: 500')
       }, 200)
     }
 
     return (
-      <>
-        <article className="vodka-container-mob">
-          <h2>{ vodka_name }</h2>
-          <img src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
-          <CSSTransition
-            in={ state }
-            timeout={ 200 }
-            unmountOnExit>
-              <section className="vodka-specs">
-                <div id="scrollable">
-                  <div className="clouse-win" onClick={ mobHide }></div>
-                  <h2>{ vodka_name }</h2>
-                  <ul >
-                    <li><span>Alkoholi:</span><p>{ vodka_alk }%</p></li>
-                    <li><span>Tilavuus:</span><p>{ vodka_bottle }L</p></li>
-                    <li><span>Pakkaus:</span><p>{ vodka_box }</p></li>
-                    <li><span>Aineosat:</span><p>{ vodka_ing }</p></li>
-                    <li><span>Valmistaja:</span><p>{ vodka_made }</p></li>
-                    <li><span>EAN koodi:</span><p>{ vodka_ean }</p></li>
-                    <li><span>Varasto:</span><p>{ vodka_warehouse }</p></li>
-                  </ul>
-                  { documentToReactComponents(vodka_history.json, options) }
-                  { vodka_license && <section className="vodka-licence">
-                    <p>Tuotettu lisenssisopimuksen perusteella BAIKAL, LLC: n kanssa.</p>
-                    <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
-                  </section>}
-                </div>
-              </section>
-          </CSSTransition>
-          <button id="vodka-item-btn" onClick={ mobShow }>Tuotetiedot</button>
-      
-        </article> 
-           {/* ДЛЯ ПК  */}
-         <article className="vodka-container-pc">
+        <article className="vodka-container-pc">
           <img src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
           <section className="vodka-specs">
           <CSSTransition
@@ -102,7 +85,10 @@ const VodkaPages = (props) => {
                   <li><span>EAN koodi:</span><p>{ vodka_ean }</p></li>
                   <li><span>Varasto:</span><p>{ vodka_warehouse }</p></li>
                 </ul> 
-              <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>Vodkasta</button>
+              <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>
+                Vodkasta
+                <span></span>
+              </button>
             </div>
           </CSSTransition>
           <CSSTransition
@@ -112,7 +98,10 @@ const VodkaPages = (props) => {
             <div className="vodka-box2">
             <h2>{ vodka_name }</h2>
                 { documentToReactComponents(vodka_history.json, options) }
-              <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>Tuotetiedot</button>
+              <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>
+                Tuotetiedot
+                <span></span>
+              </button>
             </div>
           </CSSTransition>
           </section>
@@ -120,8 +109,11 @@ const VodkaPages = (props) => {
             <p>Tuotettu lisenssisopimuksen perusteella BAIKAL, LLC: n kanssa.</p>
             <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
           </section>}
-        </article> 
-      </>
+          <ul id="select-items">
+            { buttons }
+          </ul>
+          {/* <Contacts/> */}
+        </article>
     )
   }
 export default VodkaPages
@@ -152,6 +144,14 @@ export const query = graphql `
       vodka_img {
         file {
           url
+        }
+      }
+    }
+    allContentfulVodkaProduct {
+      edges {
+        node {
+          pageID
+          vodka_name
         }
       }
     }

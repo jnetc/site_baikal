@@ -1,19 +1,24 @@
 article.vodka-container-pc {
-  max-width: 800px;
+  // max-width: 800px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   overflow: hidden;
   position: relative;
   @media screen and (max-width: 820px) {
-   display: none;
+  //  display: none;
   }
   img {
     max-width: 400px;
     flex-shrink: 1;
     user-select: none;
+    @media screen and (max-width: 820px) {
+       display: none;
+      }
   }
   .vodka-specs {
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,15 +26,21 @@ article.vodka-container-pc {
     left: -60px;
     flex-grow: 1;
     width: 50%;
+    @media screen and (max-width: 820px) {
+      height: 500px;
+      left: 0;
+      align-items: center;
+     }
   }
   .vodka-block {
     opacity: 1;
     width: 100%;
     position: absolute;
     transition: all .5s ease-in-out;
-    @media screen and (max-width: 750px) {
-      position: relative;
-    }
+    @media screen and (max-width: 820px) {
+      width: 90%;
+      margin: 30px auto;
+     }
   }
   .vodka-box {
     @extend .vodka-block;
@@ -72,6 +83,9 @@ article.vodka-container-pc {
   h2 {
     margin-bottom: 25px;
     font-size: $fs-xxl;
+    @media screen and (max-width: 820px) {
+      font-size: $fs-l;
+     }
   }
   li {
     display: flex;
@@ -87,7 +101,21 @@ article.vodka-container-pc {
     font-size: $fs-s;
   }
   .vodka-licence {
-    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 60px;
+    > p {font-size: $fs-xs;}
+    @media screen and (max-width: 820px) {
+      margin-top: 60px;
+      
+      > p {
+        width: 90%;
+      }
+     }
   }  
   #vodka-history {
     line-height: $fs-s;
@@ -106,7 +134,7 @@ article.vodka-container-pc {
   text-shadow: 15px 25px 4px rgba($deep-blue, .1);
   border-radius: 50px;
   border: 2px solid rgba($textcolor, .4);
-  background: linear-gradient(155deg, rgba($textcolor, .15) 0%, rgba($textcolor, .15) 50%, rgba($textcolor, 0.03) 50.01%, rgba($textcolor, 0.03) 100%);
+  background: transparent;
   transform: scale(1);
   box-shadow: 15px 25px 15px rgba($deep-blue, 0);
   transition: all .3s ease-in-out;
@@ -114,10 +142,31 @@ article.vodka-container-pc {
   cursor: pointer;
   z-index: 1000;
   @media screen and (max-width: 820px) {
+    margin-left: auto;
+    margin-right: auto;
+    // position: relative;
+    //   bottom: 10%;
+    //   left: 50%;
+    //   transform: translate(-50%, 0%);
+  }
+  > span {
+    width: 100%;
+    height: 100%;
     position: absolute;
-      bottom: 10%;
-      left: 50%;
-      transform: translate(-50%, 0%);
+    border-radius: 50px;
+    overflow: hidden;
+    &::before {
+      content: '';
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background: linear-gradient(155deg, rgba($deep-blue, .7) 0%, rgba($deep-blue, .7) 30%, rgba($textcolor, 0.2) 30.01%, rgba($textcolor, 0.2) 60%, rgba($textcolor, 0.03) 60.01%, rgba($textcolor, 0.03) 100%);
+      transform: translate(-50px, -325px);
+      transition: all .3s ease-in-out;
+      z-index: -1;
+    }
   }
   &::after {
     content: '';
@@ -137,12 +186,13 @@ article.vodka-container-pc {
     z-index: -1;
   }
   &:hover {
-    border: 2px solid transparent;
-    background: $deep-blue;
     box-shadow: 15px 25px 15px rgba($deep-blue, .3);
     &::after {
       box-shadow: none;
       background: transparent;
+    }
+    > span::before {
+      transform: translate(-50px, 0px);
     }
   }
 }

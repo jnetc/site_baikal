@@ -26,18 +26,17 @@ const mainVodka = (props) => {
   const { vodka_logo, question_vodka, about_vodka_txt } = props.data.contentfulVodkaMain
   const { edges } = props.data.allContentfulVodkaProduct
   const buttons = edges.map(btn => {
-    const removeOriginal = btn.node.vodka_name.split('®').join('')
-    console.log(removeOriginal);
+  const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
     
-    return <Link 
-              key={ btn.node.pageID }
-              to={`/vodka/${ btn.node.pageID }`} 
-              activeClassName="vodka-selected"
-              className="vodka-btn"
-              title={ btn.node.vodka_name }>
-              <p>{ removeOriginal }</p>
-              <span></span>
-            </Link>
+  return <Link 
+            key={ btn.node.pageID }
+            to={`/vodka/${ btn.node.pageID }`} 
+            activeClassName="vodka-selected"
+            className="vodka-btn"
+            title={ btn.node.vodka_name }>
+            <p>{ removeOriginal }</p>
+            <span></span>
+          </Link>
   })
     
 

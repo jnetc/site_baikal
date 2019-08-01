@@ -1,3 +1,11 @@
+#select-items {
+
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
 .vodka-btn {
   min-width: 300px; 
   // height: 70px;
@@ -5,17 +13,17 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   color: $textcolor;
   text-shadow: 15px 25px 4px rgba($deep-blue, .1);
-  border-radius: 10px;
+  border-radius: 50px;
   border-width: 2px;
   border-style: solid;
   border-color: rgba($textcolor, 0.2);
   box-shadow: 15px 25px 15px rgba($deep-blue, 0);
   transition: all .3s ease-in-out;
-  animation: infobtnanim .5s ease-in-out forwards;
+  // animation: infobtnanim .5s ease-in-out forwards;
   user-select: none;
   > p {
     font-size: $fs-xs;
@@ -25,7 +33,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    border-radius: 10px;
+    border-radius: 50px;
     overflow: hidden;
     &::before {
       content: '';
@@ -82,26 +90,29 @@
       transform: translate(-50px, 0px);
     }
   }
-  &:nth-of-type(1) {
-    animation-delay: 2s;
-  }
-  &:nth-of-type(2) {
-    animation-delay: 2.3s;
-  }
-  &:nth-of-type(3) {
-    animation-delay: 2.6s;
-  }
-  &:nth-of-type(4) {
-    animation-delay: 2.9s;
-  }
-  &:nth-of-type(5) {
-    animation-delay: 3.2s;
-  }
+  // &:nth-of-type(1) {
+  //   animation-delay: 2s;
+  // }
+  // &:nth-of-type(2) {
+  //   animation-delay: 2.3s;
+  // }
+  // &:nth-of-type(3) {
+  //   animation-delay: 2.6s;
+  // }
+  // &:nth-of-type(4) {
+  //   animation-delay: 2.9s;
+  // }
+  // &:nth-of-type(5) {
+  //   animation-delay: 3.2s;
+  // }
 }
 
 
-@keyframes infobtnanim {
-  0% { transform: scale(1) translateX(0px); background: transparent; }
-  50% { transform: scale(1.1) translateX(0px); background: rgba($deep-blue, 1); }
-  100% {  transform: scale(1) translateX(0px); background: transparent; }
-}
+
+
+
+// @keyframes infobtnanim {
+//   0% { transform: scale(1) translateX(0px); background: transparent; }
+//   50% { transform: scale(1.1) translateX(0px); background: rgba($deep-blue, 1); }
+//   100% {  transform: scale(1) translateX(0px); background: transparent; }
+// }
