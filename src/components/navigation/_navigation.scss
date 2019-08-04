@@ -1,14 +1,25 @@
+#main-select-items,
 #select-items {
-
   display: flex;
-  // align-items: center;
-  // justify-content: center;
   flex-direction: column;
-  margin: 0 auto;
 }
+
+#main-select-items {
+  margin: 0 auto 100px;
+}
+
+#select-items {
+  grid-column: 10/13;
+  justify-self: center;
+  align-self: center;
+  @media screen and (max-width: 1100px) {
+    grid-column: 1/13;
+    margin-top: 60px; 
+  }
+}
+
 .vodka-btn {
-  min-width: 300px; 
-  // height: 70px;
+  min-width: 250px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +34,6 @@
   border-color: rgba($textcolor, 0.2);
   box-shadow: 15px 25px 15px rgba($deep-blue, 0);
   transition: all .3s ease-in-out;
-  // animation: infobtnanim .5s ease-in-out forwards;
   user-select: none;
   > p {
     font-size: $fs-xs;
@@ -48,9 +58,8 @@
       z-index: -1;
     }
   }
-  @media screen and (max-width: 750px) {
-    width: 50px;
-    height: 50px;
+  @media screen and (max-width: 1100px) {
+    max-width: 350px; 
   }
   &::after {
     content: '';
@@ -77,7 +86,7 @@
       background: transparent;
     }
     > span::before {
-      transform: translate(-50px, 0px);
+      transform: translate(-40px, 0px);
     }
   }
   &:hover {
@@ -87,32 +96,7 @@
       background: transparent;
     }
     > span::before {
-      transform: translate(-50px, 0px);
+      transform: translate(-40px, 0px);
     }
   }
-  // &:nth-of-type(1) {
-  //   animation-delay: 2s;
-  // }
-  // &:nth-of-type(2) {
-  //   animation-delay: 2.3s;
-  // }
-  // &:nth-of-type(3) {
-  //   animation-delay: 2.6s;
-  // }
-  // &:nth-of-type(4) {
-  //   animation-delay: 2.9s;
-  // }
-  // &:nth-of-type(5) {
-  //   animation-delay: 3.2s;
-  // }
 }
-
-
-
-
-
-// @keyframes infobtnanim {
-//   0% { transform: scale(1) translateX(0px); background: transparent; }
-//   50% { transform: scale(1.1) translateX(0px); background: rgba($deep-blue, 1); }
-//   100% {  transform: scale(1) translateX(0px); background: transparent; }
-// }

@@ -39,7 +39,8 @@ const VodkaPages = (props) => {
         
     console.log(edges);
     const buttons = edges.map(btn => {
-      const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
+      // const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
+      const removeOriginal = btn.node.vodka_name.split('®').pop().trim()
         
       return <Link 
                 key={ btn.node.pageID }
@@ -52,66 +53,52 @@ const VodkaPages = (props) => {
               </Link>
       })
 
-    const mobShow = () => {
-      setState(!state)
-      // document.querySelector('#nav-vodka').removeAttribute('style')
-      // document.querySelector('#info-block').removeAttribute('style')
-    }
-    const mobHide = () => {
-      setState(!state)
-      setTimeout(() => {
-
-        // document.querySelector('#nav-vodka').setAttribute('style', 'z-index: 500')
-        // document.querySelector('#info-block').setAttribute('style', 'z-index: 500')
-      }, 200)
-    }
-
     return (
-        <article className="vodka-container-pc">
+        <article className="vodka-container">
           <img src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
           <section className="vodka-specs">
-          <CSSTransition
-            in={ !state }
-            timeout={ 500 }
-            unmountOnExit>
-            <div className="vodka-box">
+            <CSSTransition
+              in={ !state }
+              timeout={ 500 }
+              unmountOnExit>
+              <div className="vodka-box">
+                <h2>{ vodka_name }</h2>
+                  <ul >
+                    <li><span>Alkoholi:</span><p>{ vodka_alk }%</p></li>
+                    <li><span>Tilavuus:</span><p>{ vodka_bottle }L</p></li>
+                    <li><span>Pakkaus:</span><p>{ vodka_box }</p></li>
+                    <li><span>Aineosat:</span><p>{ vodka_ing }</p></li>
+                    <li><span>Valmistaja:</span><p>{ vodka_made }</p></li>
+                    <li><span>EAN koodi:</span><p>{ vodka_ean }</p></li>
+                    <li><span>Varasto:</span><p>{ vodka_warehouse }</p></li>
+                  </ul> 
+                <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>
+                  Vodkasta
+                  <span></span>
+                </button>
+              </div>
+            </CSSTransition>
+            <CSSTransition
+              in={ state }
+              timeout={ 500 }
+              unmountOnExit>
+              <div className="vodka-box2">
               <h2>{ vodka_name }</h2>
-                <ul >
-                  <li><span>Alkoholi:</span><p>{ vodka_alk }%</p></li>
-                  <li><span>Tilavuus:</span><p>{ vodka_bottle }L</p></li>
-                  <li><span>Pakkaus:</span><p>{ vodka_box }</p></li>
-                  <li><span>Aineosat:</span><p>{ vodka_ing }</p></li>
-                  <li><span>Valmistaja:</span><p>{ vodka_made }</p></li>
-                  <li><span>EAN koodi:</span><p>{ vodka_ean }</p></li>
-                  <li><span>Varasto:</span><p>{ vodka_warehouse }</p></li>
-                </ul> 
-              <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>
-                Vodkasta
-                <span></span>
-              </button>
-            </div>
-          </CSSTransition>
-          <CSSTransition
-            in={ state }
-            timeout={ 500 }
-            unmountOnExit>
-            <div className="vodka-box2">
-            <h2>{ vodka_name }</h2>
-                { documentToReactComponents(vodka_history.json, options) }
-              <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>
-                Tuotetiedot
-                <span></span>
-              </button>
-            </div>
-          </CSSTransition>
+                  { documentToReactComponents(vodka_history.json, options) }
+                <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>
+                  Tuotetiedot
+                  <span></span>
+                </button>
+              </div>
+            </CSSTransition>
           </section>
+          <ul id="select-items">
+            { buttons }
+          </ul>
           { vodka_license && <section className="vodka-licence">
             <p>Tuotettu lisenssisopimuksen perusteella BAIKAL, LLC: n kanssa.</p>
             <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
           </section>}
-          <ul id="select-items">
-            { buttons }
-          </ul>
           {/* <Contacts/> */}
         </article>
     )

@@ -6,7 +6,7 @@ const TransitionPage = ({ props }) => {
   
   const { location, children } = props
   const path =  location.pathname.split('/').splice(1, 1)[0];
-  
+
   return (
     <TransitionGroup component={'main'} id={ path === "vodka" ? "vodka" : "" }>
       <CSSTransition
@@ -21,3 +21,4 @@ const TransitionPage = ({ props }) => {
 }
 
 export default TransitionPage
+

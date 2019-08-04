@@ -1,7 +1,8 @@
 import React from 'react'
 import TransitionPage from '../components/transition-page/'
 import Background from '../components/background/'
-import Navigation from '../components//navigation'
+  // Стили для иконок
+import '../../static/css/fontello.css'
 
 const Layout = (props) => {
     // Фильтруем по линку

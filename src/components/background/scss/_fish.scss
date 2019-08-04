@@ -33,6 +33,11 @@
     bottom: 70px;
     animation: fish-fl1-mob 45s linear infinite;
   }
+  @media screen and (orientation: landscape){
+    left: 15%;
+    bottom: 70px;
+    animation: fish-fl1-mob 65s linear infinite;
+  }
 
   #fish {
     @for $i from 1 to 9 {
@@ -93,6 +98,9 @@
     bottom: 60px;
     left: -150px;
     transform: scale(0.8) translateX(-50%);
+  }
+  @media screen and (orientation: portrait) {
+    animation: fish-fl2-mob 65s linear infinite
   }
 
   #fish {
@@ -191,13 +199,6 @@
   66% { transform: translate3d(0vw, 30px, 0) scale(.7); }
   100% { transform: translate3d(-50vw, 0px, 0) scale(.6); }
 }
-@keyframes fish-fl1-m {
-  0% { transform: translate3d(0px, 0px, 0px) }
-  25% { transform: translate3d(0px, 15px, 50px) }
-  50% { transform: translate3d(0px, 5px, 50px) }
-  75% { transform: translate3d(0px, 10px, 50px) }
-  100% { transform: translate3d(0px, 0px, 150px) }
-}
 
 @keyframes fish-fl2 {
   0% { transform: translate(0vw, -15px) scaleX(-1)}
@@ -205,3 +206,18 @@
   100% { transform: translate(100vw, -50px) scaleX(-1)}
 }
 
+@keyframes fish-fl2-mob {
+  0% { transform: translate3d(-10vw, 15px, 0) scaleX(-1); }
+  33% { transform: translate3d(40vw, -5px, 0) scaleX(-1); }
+  66% { transform: translate3d(80vw, -10px, 0) scaleX(-1); }
+  100% { transform: translate3d(120vw, -5px, 0) scaleX(-1); }
+}
+
+  // Индивидуальная рыбка
+  @keyframes fish-fl1-m {
+    0% { transform: translate3d(0px, 0px, 0px) }
+    25% { transform: translate3d(0px, 15px, 50px) }
+    50% { transform: translate3d(0px, 5px, 50px) }
+    75% { transform: translate3d(0px, 10px, 50px) }
+    100% { transform: translate3d(0px, 0px, 150px) }
+  }

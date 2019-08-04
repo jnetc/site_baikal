@@ -26,7 +26,8 @@ const mainVodka = (props) => {
   const { vodka_logo, question_vodka, about_vodka_txt } = props.data.contentfulVodkaMain
   const { edges } = props.data.allContentfulVodkaProduct
   const buttons = edges.map(btn => {
-  const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
+  // const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
+  const removeOriginal = btn.node.vodka_name.split('®').pop().trim()
     
   return <Link 
             key={ btn.node.pageID }
@@ -50,10 +51,10 @@ const mainVodka = (props) => {
         <img id="vodka-main-logo" src={ vodka_logo.file.url } alt="logo"/>
         { documentToReactComponents(about_vodka_txt.json, options) }
         <h5 id="q-selection-v">{ question_vodka }</h5>
-        <ul id="select-items">
+        <ul id="main-select-items">
           { buttons }
         </ul>
-        <Contacts/>
+        {/* <Contacts/> */}
     </>
   )
 }

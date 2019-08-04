@@ -9,13 +9,12 @@ p#about-vodka {
   font-size: $fs-s;
   line-height: 23px;
   white-space: pre-wrap;
-  // text-align: center;
   @media screen and (max-width: 920px) {
     max-width: 70%;
     font-size: $fs-xs;
   }
   @media screen and (max-width: 420px) {
-    margin-left: 10px;
+    max-width: 95%;
   }
 }
 h5#q-selection-v {
@@ -25,9 +24,7 @@ h5#q-selection-v {
   text-align: center;
   font-weight: 400;
   @media screen and (max-width: 420px) {
-    max-width: 250px;
-    margin-left: 10px;
-    // text-align: left;
+    max-width: 300px;
     font-size: $fs-xs;
   }
 }
