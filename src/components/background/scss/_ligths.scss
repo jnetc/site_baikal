@@ -24,7 +24,7 @@
   @for $i from 1 to 16 {
     &-#{$i}{
       animation: wave #{random($i) }s linear infinite;
-      animation-delay: #{random($i) * 5}s
+      animation-delay: #{random($i) * 1}s
     }
   }
 }
