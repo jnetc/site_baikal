@@ -1,6 +1,14 @@
 #vodka-main-logo {
   width: 330px;
   margin: 0 auto;
+  @media screen and (max-width: 420px) {
+    margin-top: 60px;
+    width: 250px;
+  }
+  @media screen and (max-height: 950px) {
+    margin-top: 60px;
+  }
+
 }
 
 p#about-vodka {

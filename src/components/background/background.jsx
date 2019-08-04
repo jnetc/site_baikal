@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { MainReef, MobReef, SecondReef, ThirdReef,
   FourthReef, Stone, Stone2, Stone3 } from './reef'
 import Lights from './lights'
@@ -6,7 +7,14 @@ import Bubbles from './bubbles'
 import Fish from './fish'
 
 const Background = () => {
-  
+    const firm = useStaticQuery(graphql `
+      query {
+        contentfulContacts {
+          firm_name
+        }
+      }
+    `)
+    const { firm_name } = firm.contentfulContacts
     return (
       <div id="background">
         <FourthReef/>
@@ -24,11 +32,8 @@ const Background = () => {
         <Bubbles data={{ class: 'fbl'}}/>
         <Bubbles data={{ class: 'tbl'}}/>
         <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-        
+          © {new Date().getFullYear()} { firm_name }
+        </footer>
       </div>
     )
 

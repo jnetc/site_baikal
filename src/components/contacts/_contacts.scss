@@ -1,32 +1,29 @@
 ul.info-block {
   position: absolute;
-  left: 10px;
-  bottom: 10px;
+  right: 10px;
+  top: 10px;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   // margin: 20px auto;
   flex-shrink: 1;
-  padding: 20px;
+  // padding: 20px;
   // margin-bottom: 10%;
-  border: 2px dashed $textcolor;
-  border-radius: 10px;
+  // border: 2px dashed $textcolor;
+  // border-radius: 10px;
   color: $textcolor;
-  background: rgba($deep-blue, .7);
+  // background: rgba($deep-blue, .7);
   // transform: translateY(-150px);
   transition: all .3s ease-in-out;
   animation: showInfo .3s ease-in-out forwards;
   animation-delay: .5s;
   @media screen and (max-width: 750px) {
-    padding: 0;
-    top: 30px;
-    right: 10px;
-    left: auto;
-    border: none;
+    flex-direction: column;
+
   }
   li {
-    display: flex;
+    // display: flex;
     align-items: center;
-    margin: 3px 0;
+    // margin: 3px 0;
     position: relative;
   }
   a {
@@ -39,7 +36,7 @@ ul.info-block {
     position: relative;
     top: 0px;
     color: $textcolor;
-    font-size: $fs-xs;
+    font-size: 12px;
     cursor: pointer;
     @media screen and (max-width: 750px) {
       font-size: $fs-xs;
@@ -48,6 +45,9 @@ ul.info-block {
     &:hover {
       color: $deep-blue;
     }
+  }
+  p, pre {
+    font-size: 12px;
   }
 }
 

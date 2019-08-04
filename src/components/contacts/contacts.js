@@ -6,11 +6,8 @@ const Contacts = () => {
     query {
       contentfulContacts {
         email,
-        facebook,
         tel,
-        address {
-          address
-        }
+        address,
         geo
         info {
           info
@@ -18,13 +15,7 @@ const Contacts = () => {
       }
     }
   `)
-  console.log(data.contentfulContacts);
-  const { email, facebook, tel, address, geo } = data.contentfulContacts
-  const cutTxt = 'https://www.'
-  const cutFacebook = facebook.replace(cutTxt, '')
-  console.log(cutFacebook);
-  
-
+  const { email, tel, address, geo } = data.contentfulContacts
 
   return (
     <ul className="info-block" style={{ zIndex: "500"}}>
@@ -33,19 +24,11 @@ const Contacts = () => {
           <i className="icon-email" title={ email }></i>
           <p>{ email }</p>
         </a>
-      </li>
-      { facebook !== undefined && 
-        <li className="info-box">
-          <a href={ facebook }>
-            <i className="icon-face" title={ cutFacebook }></i>
-            <p>{ cutFacebook }</p>
-          </a>
-        </li> }
-      
+      </li>      
       <li className="info-box">
         <a href={ geo }>
-          <i className="icon-geo" title={ address.address }></i>
-          <pre>{ address.address }</pre>
+          <i className="icon-geo" title={ address }></i>
+          <pre>{ address }</pre>
         </a>
       </li>
       <li className="info-box">

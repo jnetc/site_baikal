@@ -23,7 +23,7 @@
   right: 0;
   bottom: 90px;
   color: $underworld;
-  animation: fish-fl1 85s linear infinite;
+  animation: fish-fl1 105s linear infinite;
   @media screen and (max-width: 820px) {
     transform: scale(0.6) translateX(-50%);
     bottom: -50px;
@@ -31,12 +31,13 @@
   @media screen and (orientation: portrait){
     left: 15%;
     bottom: 70px;
-    animation: fish-fl1-mob 45s linear infinite;
+    animation: fish-fl1-mob 55s linear infinite;
   }
   @media screen and (orientation: landscape){
     left: 15%;
     bottom: 70px;
-    animation: fish-fl1-mob 65s linear infinite;
+    animation: fish-fl1-mob 85s linear infinite;
+    // animation: fish-fl1 105s linear infinite;
   }
 
   #fish {
@@ -93,7 +94,7 @@
   bottom: 80px;
   color: rgba($underworld, .8);
   animation: fish-fl2 105s linear infinite;
-  animation-delay: 50s;
+  animation-delay: 30s;
   @media screen and (max-width: 820px) {
     bottom: 60px;
     left: -150px;
@@ -136,7 +137,7 @@
   color: rgba($underworld, 0.1);
   transform: scaleX(-1);
   animation: fish-fl2 130s linear infinite;
-  animation-delay: 1s;
+  animation-delay: 5s;
   @media screen and (max-width: 820px) {
     bottom: 110px;
     transform: scale(0.8) translateX(-50%);
@@ -189,9 +190,9 @@
 }
 
 @keyframes fish-fl1 {
-  0% { transform: translate(0vw, -15px) scale(.8); }
-  50% { transform: translate(-50vw, 35px) scale(1); }
-  100% { transform: translate(-100vw, -50px) scale(.9); }
+  0% { transform: translate(0vw, -25px) scale(.8); }
+  50% { transform: translate(-50vw, 15px) scale(1); }
+  100% { transform: translate(-100vw, -70px) scale(.9); }
 }
 @keyframes fish-fl1-mob {
   0% { transform: translate3d(100vw, -15px, 0) scale(.6); }

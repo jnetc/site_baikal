@@ -54,7 +54,7 @@ const mainVodka = (props) => {
         <ul id="main-select-items">
           { buttons }
         </ul>
-        {/* <Contacts/> */}
+        <Contacts/>
     </>
   )
 }
