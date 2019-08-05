@@ -1,4 +1,4 @@
-article.vodka-container {
+article.v-container {
   max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -7,9 +7,9 @@ article.vodka-container {
   position: relative;
   @media screen and (max-width: 1100px) {
     width: 95%;
-    margin: auto;
+    margin: 50px auto 0;
   }
-  img {
+  img.v-bottle {
     max-width: 400px;
     position: relative;
     grid-column: 1/4;
@@ -24,8 +24,8 @@ article.vodka-container {
       left: 10%;
     }
   }
-  .vodka-specs {
-    grid-column: 4/10;
+  .v-specs {
+    grid-column: 4/9;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +39,7 @@ article.vodka-container {
       align-items: center;
      }
   }
-  .vodka-block {
+  .v-block {
     opacity: 1;
     width: 100%;
     position: absolute;
@@ -48,47 +48,47 @@ article.vodka-container {
       width: 90%;
      }
   }
-  .vodka-box {
-    @extend .vodka-block;
+  .v-box {
+    @extend .v-block;
     z-index: 500;
     @media screen and (max-width: 1100px) {
       width: 90%;
      }
   }
-  .vodka-box2 {
-    @extend .vodka-block;
+  .v-box2 {
+    @extend .v-block;
     z-index: 400;
     @media screen and (max-width: 1100px) {
       width: 90%;
      }
   }
-  .vodka-box.enter,
-  .vodka-box2.enter {  
+  .v-box.enter,
+  .v-box2.enter {  
     opacity: 0;
     transform: translateX(-50px);
   }
-  .vodka-box.enter-active,
-  .vodka-box2.enter-active {  
+  .v-box.enter-active,
+  .v-box2.enter-active {  
     opacity: 1;
     transform: translateX(0px);
   }
-  .vodka-box.enter-done,
-  .vodka-box2.enter-done {  
+  .v-box.enter-done,
+  .v-box2.enter-done {  
     opacity: 1;
     transform: translateX(0px);
   }
-  .vodka-box.exit,
-  .vodka-box2.exit {  
+  .v-box.exit,
+  .v-box2.exit {  
     opacity: 1;
     transform: translateX(0px);
   }
-  .vodka-box.exit-active,
-  .vodka-box2.exit-active {  
+  .v-box.exit-active,
+  .v-box2.exit-active {  
     transform: translateX(10px);
     opacity: 0;
   }
-  .vodka-box.exit-done,
-  .vodka-box2.exit-done {  
+  .v-box.exit-done,
+  .v-box2.exit-done {  
     opacity: 0;
     transform: translateX(10px);
   }
@@ -107,14 +107,15 @@ article.vodka-container {
       font-weight: bold;
       font-size: $fs-s;
     }
-  }
-  p {
-    margin-left: 5px;
-    font-size: $fs-s;
+    p {
+      margin-left: 5px;
+      // line-height: 1.5;
+      // font-size: $fs-s;
+    }
   }
     //////////////////////////
     // Лицензионное соглашение 
-  .vodka-licence {
+  .v-licence {
     width: 100%;
     display: flex;
     grid-column: 1/13;
@@ -134,13 +135,10 @@ article.vodka-container {
         
       }
      }
-  }  
-  #vodka-history {
-    line-height: $fs-s;
   }
 }
 
-#vodka-item-btn {
+#v-item-btn {
   display: flex;
   justify-content: center;
   align-items: center;

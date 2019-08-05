@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import { CSSTransition } from 'react-transition-group'
-import Contacts from '../components/contacts'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -39,14 +38,15 @@ const VodkaPages = (props) => {
         
     console.log(edges);
     const buttons = edges.map(btn => {
-      // const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
-      const removeOriginal = btn.node.vodka_name.split('®').pop().trim()
+      const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
+      // const removeOriginal = btn.node.vodka_name.split('®').pop().trim()
         
       return <Link 
                 key={ btn.node.pageID }
                 to={`/vodka/${ btn.node.pageID }`} 
                 activeClassName="vodka-selected"
                 className="vodka-btn"
+                style={{ order: `${ btn.node.btn_order }`}}
                 title={ btn.node.vodka_name }>
                 <p>{ removeOriginal }</p>
                 <span></span>
@@ -54,14 +54,14 @@ const VodkaPages = (props) => {
       })
 
     return (
-        <article className="vodka-container">
-          <img src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
-          <section className="vodka-specs">
+        <article className="v-container">
+          <img className="v-bottle" src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
+          <section className="v-specs">
             <CSSTransition
               in={ !state }
               timeout={ 500 }
               unmountOnExit>
-              <div className="vodka-box">
+              <div className="v-box">
                 <h2>{ vodka_name }</h2>
                   <ul >
                     <li><span>Alkoholi:</span><p>{ vodka_alk }%</p></li>
@@ -72,7 +72,7 @@ const VodkaPages = (props) => {
                     <li><span>EAN koodi:</span><p>{ vodka_ean }</p></li>
                     <li><span>Varasto:</span><p>{ vodka_warehouse }</p></li>
                   </ul> 
-                <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>
+                <button id="v-item-btn" onClick={ ()=> {setState(!state)}}>
                   Vodkasta
                   <span></span>
                 </button>
@@ -82,10 +82,10 @@ const VodkaPages = (props) => {
               in={ state }
               timeout={ 500 }
               unmountOnExit>
-              <div className="vodka-box2">
+              <div className="v-box2">
               <h2>{ vodka_name }</h2>
                   { documentToReactComponents(vodka_history.json, options) }
-                <button id="vodka-item-btn" onClick={ ()=> {setState(!state)}}>
+                <button id="v-item-btn" onClick={ ()=> {setState(!state)}}>
                   Tuotetiedot
                   <span></span>
                 </button>
@@ -95,11 +95,10 @@ const VodkaPages = (props) => {
           <ul id="select-items">
             { buttons }
           </ul>
-          { vodka_license && <section className="vodka-licence">
+          { vodka_license && <section className="v-licence">
             <p>Tuotettu lisenssisopimuksen perusteella BAIKAL, LLC: n kanssa.</p>
             <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
           </section>}
-          {/* <Contacts/> */}
         </article>
     )
   }
@@ -139,6 +138,7 @@ export const query = graphql `
         node {
           pageID
           vodka_name
+          btn_order
         }
       }
     }

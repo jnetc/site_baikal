@@ -56,13 +56,13 @@ h1 {
     box-shadow: 0 10px 10px rgba($deep-blue, .4);
     transition: all .3s ease-in-out;
     &.yes {
-      background: $bg-gradient-deep;
+      background: $blue;
     }
     &.no {
       background: $deep-blue;
     }
     &:hover.yes {
-      background: lighten($bg-gradient-deep, 5);
+      background: lighten($blue, 5);
     }
     &:hover.no {
       background: lighten($deep-blue, 5);

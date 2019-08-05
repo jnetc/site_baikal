@@ -40,5 +40,9 @@ h1, h2, h3, h4, h5, h6 {
 p, pre {
   font-family: 'Open Sans', sans-serif;
   font-weight: 100;
-  line-height: 25px;
+  line-height: 1.5;
+}
+::selection {
+  color: $light-blue;
+  background: $underworld;
 }

@@ -1,20 +1,20 @@
 import React from 'react'
 import TransitionPage from '../components/transition-page/'
 import Background from '../components/background/'
+import Contacts from '../components/contacts'
   // Стили для иконок
 import '../../static/css/fontello.css'
 
 const Layout = (props) => {
     // Фильтруем по линку
-  const path =  props.location.pathname.split('/').splice(1, 1)[0];
-
+  // const path =  props.location.pathname.split('/').splice(1, 1)[0];
   return (
     <React.Fragment>
+      <Contacts path={ props.location }/>
       <TransitionPage props={ props }>
         { props.children }
       </TransitionPage>
       <Background/>
-      {/* { path === "vodka" && <Navigation/> }   */}
     </React.Fragment>
   )
 }

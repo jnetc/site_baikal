@@ -8,14 +8,12 @@
   @media screen and (max-height: 950px) {
     margin-top: 60px;
   }
-
 }
 
 p#about-vodka {
   max-width: 700px;
   margin: 40px auto 0;
   font-size: $fs-s;
-  line-height: 23px;
   white-space: pre-wrap;
   @media screen and (max-width: 920px) {
     max-width: 70%;
@@ -26,8 +24,19 @@ p#about-vodka {
   }
 }
 h5#q-selection-v {
-  max-width: 350px;
-  margin: 60px auto 40px;
+  // max-width: 350px;
+  margin: 60px auto 0px;
+  font-size: $fs-m;
+  text-align: center;
+  font-weight: 400;
+  @media screen and (max-width: 420px) {
+    max-width: 300px;
+    font-size: $fs-s;
+  }
+}
+h5#q-selection-v2 {
+  // max-width: 350px;
+  margin: 15px auto 20px;
   font-size: $fs-s;
   text-align: center;
   font-weight: 400;
