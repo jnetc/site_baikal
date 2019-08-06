@@ -12,8 +12,11 @@ header {
 .v-logo-prod {
   display: none;
   opacity: 0;
-  transform: translateY(-10px);
-  transition: all .5s ease-in-out;
+  &.show-logo {
+    display: block;
+    animation: showLogo .5s ease-in-out forwards;
+    animation-delay: .5s;
+  }
   img {
     height: 40px;
     margin: 10px 5px 0 15px;
@@ -22,33 +25,15 @@ header {
     }
   }
 }
-.v-logo-prod.enter,
-.v-logo-prod.enter-action,
-.v-logo-prod.exit-done {
-  display: none;
-  opacity: 0;
-  transform: translateY(-10px);
-  // transition: all .5s ease-in-out;
+
+@keyframes showInfo {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0px); }
 }
-.v-logo-prod.enter-done,
-.v-logo-prod.exit,
-.v-logo-prod.exit-action {
-  display: block;
-  opacity: 1;
-  transform: translateY(0px);
-  // transition: all .5s ease-in-out;
+@keyframes showLogo {
+  0% { opacity: 0; transform: translateY(-10px); display: none; }
+  100% { opacity: 1; transform: translateY(0px); display: block; }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 ul.info-block {
   display: flex;
@@ -156,11 +141,3 @@ ul.info-block {
   }
 }
 
-@keyframes showInfo {
-  0% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0px); }
-}
-@keyframes hideInfo {
-  0% { opacity: 1; transform: translateY(0px); }
-  100% { opacity: 0; transform: translateY(-10px); }
-}

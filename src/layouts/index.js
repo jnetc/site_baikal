@@ -8,9 +8,11 @@ import '../../static/css/fontello.css'
 const Layout = (props) => {
     // Фильтруем по линку
   // const path =  props.location.pathname.split('/').splice(1, 1)[0];
+  console.log(props);
+  
   return (
     <React.Fragment>
-      <Contacts path={ props.location }/>
+      <Contacts path={ props.path }/>
       <TransitionPage props={ props }>
         { props.children }
       </TransitionPage>

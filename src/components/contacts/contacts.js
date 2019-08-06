@@ -25,20 +25,27 @@ const Contacts = (props) => {
   `)
   const { email, tel, address, geo } = data.contentfulContacts 
   const { url } = data.contentfulVodkaMain.vodka_logo.file 
-  const { pathname } = props.path
-  const showContacts = pathname.split('/').splice(1, 1)[0];
-    console.log(pathname !== "/vodka");
+  const { path } = props
+  console.log(path, path !== "/vodka/");
+  
+  // const showContacts = 'vodka'
+  const showContacts = path.split('/').splice(1, 1)[0];
+    console.log(props);
     
   return (
     <header className={ showContacts === "vodka" ? "show" : "" }>
-      <CSSTransition
-        in={ pathname !== "/vodka" }
+      {/* <CSSTransition
+        in={ path !== "/vodka/" }
         timeout={ 500 }
-        className="v-logo-prod">
+        className="v-logo-prod"
+        unmountOnExit>
         <Link to="/vodka">
           <img id="v-product-logo" src={ url } alt="logo"/>
         </Link>
-      </CSSTransition>
+      </CSSTransition> */}
+      <Link to="/vodka" className={ path !== "/vodka/" ? "v-logo-prod show-logo" : "v-logo-prod"}>
+        <img id="v-product-logo" src={ url } alt="logo"/>
+      </Link>
       <ul className="info-block">
         <li className="info-box">
           <a href={`mailto: ${ email }`}>
