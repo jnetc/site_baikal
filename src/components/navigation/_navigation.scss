@@ -1,3 +1,4 @@
+  // VODKA
 #main-select-items,
 #select-items {
   display: flex;
@@ -17,8 +18,14 @@
     margin-top: 20px; 
   }
 }
+#limsa-main {
+  margin: 60px auto 100px;
+}
 
-.vodka-btn {
+
+
+.vodka-btn,
+.lemonade-btn {
   min-width: 320px; 
   display: flex;
   justify-content: center;
@@ -79,7 +86,8 @@
     z-index: -1;
   }
     // ACTIVE CLASS
-  &.vodka-selected {
+  &.vodka-selected,
+  &.lemonade-selected {
     box-shadow: 15px 25px 15px rgba($deep-blue, .3);
     &::after {
       box-shadow: none;

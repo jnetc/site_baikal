@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import { CSSTransition } from 'react-transition-group'
+import { match } from 'minimatch';
 
 const Contacts = (props) => {
   const data = useStaticQuery(graphql `
@@ -21,30 +21,38 @@ const Contacts = (props) => {
           }
         }
       }
+      contentfulMainPage {
+        logo {
+          file {
+            url
+          }
+        }
+      }
     }
   `)
   const { email, tel, address, geo } = data.contentfulContacts 
-  const { url } = data.contentfulVodkaMain.vodka_logo.file 
+  const { vodka_logo } = data.contentfulVodkaMain
+  const { logo } = data.contentfulMainPage
   const { path } = props
-  console.log(path, path !== "/vodka/");
-  
-  // const showContacts = 'vodka'
+    // Показываем шапку с контактами, без лого
   const showContacts = path.split('/').splice(1, 1)[0];
-    console.log(props);
-    
+  const show = showContacts === "vodka" || showContacts === "limsa"
+    // Показываем лого когда выбран продукт
+  const txt = path
+  const maskVodka = '/vodka/[A-Z,a-z,0-9]'
+  const checkVodka = txt.match(maskVodka)
+  const maskLimsa = '/limsa/[A-Z,a-z,0-9]'
+  const checkLimsa = txt.match(maskLimsa)    
+  
   return (
-    <header className={ showContacts === "vodka" ? "show" : "" }>
-      {/* <CSSTransition
-        in={ path !== "/vodka/" }
-        timeout={ 500 }
-        className="v-logo-prod"
-        unmountOnExit>
-        <Link to="/vodka">
-          <img id="v-product-logo" src={ url } alt="logo"/>
-        </Link>
-      </CSSTransition> */}
-      <Link to="/vodka" className={ path !== "/vodka/" ? "v-logo-prod show-logo" : "v-logo-prod"}>
-        <img id="v-product-logo" src={ url } alt="logo"/>
+    <header className={ show ? "show" : "" }>
+      <Link to="/vodka" 
+            className={ checkVodka !== null ? "v-logo-prod show-logo" : "v-logo-prod"}>
+        <img id="v-product-logo" src={ vodka_logo.file.url } alt="logo"/>
+      </Link>
+      <Link to="/limsa" 
+            className={ checkLimsa !== null ? "l-logo-prod show-logo" : "l-logo-prod"}>
+        <img id="v-product-logo" src={ logo.file.url } alt="logo"/>
       </Link>
       <ul className="info-block">
         <li className="info-box">

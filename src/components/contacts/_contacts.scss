@@ -9,7 +9,8 @@ header {
     animation-delay: .5s;
   }
 }
-.v-logo-prod {
+.v-logo-prod,
+.l-logo-prod {
   display: none;
   opacity: 0;
   &.show-logo {
@@ -18,13 +19,27 @@ header {
     animation-delay: .5s;
   }
   img {
-    height: 40px;
     margin: 10px 5px 0 15px;
+  }
+}
+
+.v-logo-prod {
+  img {
+    height: 40px;
     @media screen and (max-width: 750px){
       height: 35px;
     }
   }
 }
+.l-logo-prod {
+  img {
+    height: 30px;
+    @media screen and (max-width: 750px){
+      height: 30px;
+    }
+  }
+}
+
 
 @keyframes showInfo {
   0% { opacity: 0; transform: translateY(-10px); }

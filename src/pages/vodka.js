@@ -20,14 +20,13 @@ const options = {
 }
   
 
-const mainVodka = (props) => {
+const mainVodka = ({ data }) => {
     // Содержание страницы
-  const { vodka_logo, question_vodka, question_vodka2, about_vodka_txt } = props.data.contentfulVodkaMain
-  const { edges } = props.data.allContentfulVodkaProduct
+  const { vodka_logo, question_vodka, question_vodka2, about_vodka_txt } = data.contentfulVodkaMain
+  const { edges } = data.allContentfulVodkaProduct
   const buttons = edges.map(btn => {
     const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
-    // const removeOriginal = btn.node.vodka_name.split('®').pop().trim()
-      
+      // const removeOriginal = btn.node.vodka_name.split('®').pop().trim()
     return <Link 
               key={ btn.node.pageID }
               to={`/vodka/${ btn.node.pageID }`} 

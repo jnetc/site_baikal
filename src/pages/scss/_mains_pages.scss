@@ -1,4 +1,5 @@
-#vodka-main-logo {
+#vodka-main-logo,
+#lemonade-main-logo {
   width: 330px;
   margin: 0 auto;
   @media screen and (max-width: 420px) {
@@ -10,11 +11,11 @@
   }
 }
 
-p#about-vodka {
-  max-width: 700px;
+p#about-vodka,
+p#about-lemonade {
   margin: 40px auto 0;
   font-size: $fs-s;
-  white-space: pre-wrap;
+  // white-space: pre-wrap;
   @media screen and (max-width: 920px) {
     max-width: 70%;
     font-size: $fs-xs;
@@ -23,6 +24,15 @@ p#about-vodka {
     max-width: 95%;
   }
 }
+p#about-vodka {
+  max-width: 700px;
+}
+p#about-lemonade {
+  max-width: 700px;
+}
+
+
+
 h5#q-selection-v {
   // max-width: 350px;
   margin: 60px auto 0px;
