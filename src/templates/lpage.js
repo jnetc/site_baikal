@@ -9,6 +9,7 @@ const LemonadePages = (props) => {
           lemonade_ing,
           nutritional_content,
           lemonade_made,
+          lemonade_preservation,
           lemonade_license,
           lemonade_img } = props.data.contentfulLemonadeProduct
   const { edges } = props.data.allContentfulLemonadeProduct
@@ -36,6 +37,7 @@ const LemonadePages = (props) => {
             <li><span>Tilavuus:</span><p>{ lemonade_bottle }L</p></li>
             <li><span>Pakkaus:</span><p>{ lemonade_box }</p></li>
             <li><span>Aineosat:</span><p>{ lemonade_ing }</p></li>
+            <li><span>Säilytys:</span><p>{ lemonade_preservation }</p></li>
             <li><span>Ravintosisältö:</span><p>{ nutritional_content }</p></li>
             <li><span>Valmistaja:</span><p>{ lemonade_made }</p></li>
           </ul>
@@ -63,6 +65,7 @@ query ($pageID: String!) {
     lemonade_ing
     nutritional_content
     lemonade_made
+    lemonade_preservation
     lemonade_license
     lemonade_img {
       file {
