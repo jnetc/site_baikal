@@ -17,7 +17,7 @@ module.exports.shouldUpdateScroll = ({
 }
 
 
-// exports.disableCorePrefetching = () => true
+exports.disableCorePrefetching = () => true
 
 exports.onRouteUpdate = ({ location, prevLocation }) => {
   console.log('new pathname', location.pathname)

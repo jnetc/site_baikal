@@ -36,6 +36,8 @@ const Contacts = (props) => {
     // Показываем шапку с контактами, без лого
   const showContacts = path.split('/').splice(1, 1)[0];
   const show = showContacts === "vodka" || showContacts === "limsa"
+  console.log(show);
+  
     // Показываем лого когда выбран продукт
   const txt = path
   const maskVodka = '/vodka/[A-Z,a-z,0-9]'
@@ -44,7 +46,7 @@ const Contacts = (props) => {
   const checkLimsa = txt.match(maskLimsa)    
   
   return (
-    <header className={ show ? "show" : "" }>
+    <header className={ show ? "head show" : "head" }>
       <Link to="/vodka" 
             className={ checkVodka !== null ? "v-logo-prod show-logo" : "v-logo-prod"}>
         <img id="v-product-logo" src={ vodka_logo.file.url } alt="logo"/>
