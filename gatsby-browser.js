@@ -15,3 +15,6 @@ module.exports.shouldUpdateScroll = ({
   }
   return false
 }
+
+
+exports.disableCorePrefetching = () => true
