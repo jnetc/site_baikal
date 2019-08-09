@@ -19,7 +19,7 @@ const LemonadePages = (props) => {
               to={`/limsa/${ btn.node.pageID }`} 
               activeClassName="lemonade-selected"
               className="lemonade-btn"
-              // style={{ order: `${ btn.node.btn_order }`}}
+              style={{ order: `${ btn.node.btn_order }`}}
               title={ btn.node.lemonade_name }>
               <p>{ lemonade_name }</p>
               <span></span>
@@ -75,6 +75,7 @@ query ($pageID: String!) {
       node {
         pageID
         lemonade_name
+        btn_order
       }
     }
   }
