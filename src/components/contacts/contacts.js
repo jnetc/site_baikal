@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 
+
 const Contacts = (props) => {
   const data = useStaticQuery(graphql `
     query {
@@ -35,9 +36,7 @@ const Contacts = (props) => {
   const { path } = props
     // Показываем шапку с контактами, без лого
   const showContacts = path.split('/').splice(1, 1)[0];
-  const show = showContacts === "vodka" || showContacts === "limsa"
-  console.log(show);
-  
+  const show = showContacts === "vodka" || showContacts === "limsa"  
     // Показываем лого когда выбран продукт
   const txt = path
   const maskVodka = '/vodka/[A-Z,a-z,0-9]'
@@ -47,7 +46,7 @@ const Contacts = (props) => {
   
   return (
     <>
-      { show && <header className={ show ? "head show" : "head" }>
+      { show && <header className={ show ? "show" : "" }>
       <Link to="/vodka" 
             className={ checkVodka !== null ? "v-logo-prod show-logo" : "v-logo-prod"}>
         <img id="v-product-logo" src={ vodka_logo.file.url } alt="logo"/>

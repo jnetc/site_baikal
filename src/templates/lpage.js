@@ -30,7 +30,7 @@ const LemonadePages = (props) => {
     <article className="v-container">
     <img className="v-bottle" src={ lemonade_img.file.url} alt={ lemonade_name } draggable="false"/>
     <section className="l-specs">
-      <div className="v-box">
+      <div className="l-box">
         <h2>{ lemonade_name }</h2>
           <ul >
             <li><span>Alkoholi:</span><p>{ lemoande_alk }</p></li>

@@ -1,7 +1,8 @@
-header.head {
+header {
   width: 100%;
   display: flex;
   opacity: 0;
+  position: absolute;
   justify-content: space-between;
   z-index: 500;
   &.show {
