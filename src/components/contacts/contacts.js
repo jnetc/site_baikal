@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import { match } from 'minimatch';
 
 const Contacts = (props) => {
   const data = useStaticQuery(graphql `

@@ -21,23 +21,42 @@ article.v-container {
     }
     @media screen and (max-width: 750px) {
       max-width: 250px;
-      left: 10%;
+      // left: 10%;
     }
   }
-  .v-specs {
-    grid-column: 4/9;
+  .v-specs,
+  .l-specs {
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    @media screen and (max-width: 1100px) {
-      grid-column: 4/13;
-     }
-    @media screen and (max-width: 1000px) {
-      grid-column: 1/13;
+    @media only screen and (max-width: 1000px) {
+      // grid-column: 1/13;
       min-height: 440px;
       align-items: center;
-     }
+      align-self: center;
+      align-content: center;
+      justify-items: center;
+      // margin: 0 auto;
+    }
+  }
+  .v-specs {
+    grid-column: 4/9;
+    @media only screen and (max-width: 1100px) and (min-width: 1001px) {
+      grid-column: 4/13;
+    }
+    @media only screen and (max-width: 1000px) {
+      grid-column: 1/13;
+    }
+  }
+  .l-specs {
+    grid-column: 5/9;
+    @media only screen and (max-width: 1100px) and (min-width: 1001px) {
+      grid-column: 5/13;
+    }
+    @media only screen and (max-width: 1000px) {
+      grid-column: 1/13;
+    }
   }
   .v-block {
     opacity: 1;

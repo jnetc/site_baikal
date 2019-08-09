@@ -16,19 +16,27 @@ p#about-lemonade {
   margin: 40px auto 0;
   font-size: $fs-s;
   // white-space: pre-wrap;
-  @media screen and (max-width: 920px) {
-    max-width: 70%;
+  @media only screen and (max-width: 920px) and ( min-width: 421px) {
     font-size: $fs-xs;
+  }
+}
+p#about-vodka {
+  max-width: 700px;
+  @media only screen and (max-width: 920px) and ( min-width: 421px) {
+    max-width: 70%;
   }
   @media screen and (max-width: 420px) {
     max-width: 95%;
   }
 }
-p#about-vodka {
-  max-width: 700px;
-}
 p#about-lemonade {
   max-width: 700px;
+  @media only screen and (max-width: 920px) and ( min-width: 421px) {
+    max-width: 70%;
+  }
+  @media screen and (max-width: 420px) {
+    max-width: 95%;
+  }
 }
 
 
