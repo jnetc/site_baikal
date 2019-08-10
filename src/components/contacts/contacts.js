@@ -10,9 +10,6 @@ const Contacts = (props) => {
         tel,
         address,
         geo
-        info {
-          info
-        }
       }
       contentfulVodkaMain {
         vodka_logo {

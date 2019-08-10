@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
 import './index.scss'
-import Head from '../components/head'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -23,11 +22,10 @@ const options = {
 }
 
 const  IndexPage = (props) =>  {
-    const { title, question, aboutBaikal, logo } = props.data.contentfulMainPage
+    const { title, question, aboutBaikal, logo, seo_title, seo_description } = props.data.contentfulMainPage
     return (
       <>
-        <Head/>
-        <SEO title="Home" />
+        <SEO title={ seo_title } description={ seo_description } />
         <img id="logo-baikal" src={ logo.file.url } alt="logo"/>
         <h1>{ title }</h1>
         <pre id="main-about-site">{ documentToReactComponents( aboutBaikal.json, options )}</pre> 
@@ -52,6 +50,8 @@ query {
   contentfulMainPage {
     title
     question
+    seo_title
+    seo_description
     aboutBaikal {
       json
     }

@@ -1,9 +1,4 @@
 module.exports = {
-  siteMetadata: {
-    title: `Baikal`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@ЖнецЪ`,
-  },
   plugins: [
     `gatsby-plugin-layout`,
     `gatsby-plugin-sass`,
@@ -20,11 +15,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `baikal.fi`,
+        short_name: `baikal`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#52A8F2`,
+        theme_color: `#52A8F2`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },

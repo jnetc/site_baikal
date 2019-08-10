@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { CSSTransition } from 'react-transition-group'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import SEO from "../components/seo"
 
   // Options for "RICH TEXT"
 const Bold = ({ children }) => <b>{children}</b>
@@ -34,6 +35,8 @@ const VodkaPages = (props) => {
     vodka_license,
     vodka_warehouse,
     vodka_history,
+    seo_title,
+    seo_description,
     vodka_img } = props.data.contentfulVodkaProduct
         
     console.log(edges);
@@ -54,6 +57,8 @@ const VodkaPages = (props) => {
       })
 
     return (
+      <>
+        <SEO title={ seo_title } description={ seo_description } />
         <article className="v-container">
           <img className="v-bottle" src={ vodka_img.file.url} alt={ vodka_name } draggable="false"/>
           <section className="v-specs">
@@ -100,6 +105,7 @@ const VodkaPages = (props) => {
             <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
           </section>}
         </article>
+      </>
     )
   }
 export default VodkaPages
@@ -115,15 +121,17 @@ export default VodkaPages
 export const query = graphql `
   query ( $pageID: String! ){
     contentfulVodkaProduct (pageID:{eq: $pageID}) {
-      vodka_name,
-      vodka_alk,
-      vodka_box,
-      vodka_ing,
-      vodka_ean,
-      vodka_made,
-      vodka_bottle,
-      vodka_license,
-      vodka_warehouse,
+      vodka_name
+      vodka_alk
+      vodka_box
+      vodka_ing
+      vodka_ean
+      vodka_made
+      vodka_bottle
+      vodka_license
+      vodka_warehouse
+      seo_title
+      seo_description
       vodka_history {
         json
       }

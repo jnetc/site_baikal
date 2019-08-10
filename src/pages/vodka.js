@@ -1,6 +1,5 @@
 import React from "react"
 import SEO from "../components/seo"
-import Head from '../components/head'
 import { Link, graphql } from 'gatsby'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
@@ -22,7 +21,8 @@ const options = {
 
 const mainVodka = ({ data }) => {
     // Содержание страницы
-  const { vodka_logo, question_vodka, question_vodka2, about_vodka_txt } = data.contentfulVodkaMain
+  const { vodka_logo, question_vodka, question_vodka2, about_vodka_txt, seo_title,
+    seo_description } = data.contentfulVodkaMain
   const { edges } = data.allContentfulVodkaProduct
   const buttons = edges.map(btn => {
     const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
@@ -45,9 +45,7 @@ const mainVodka = ({ data }) => {
   // })
   return (
     <>
-      <Head/>
-      <SEO title="Page two" />
-        
+      <SEO title={ seo_title } description={ seo_description } />
         <img id="vodka-main-logo" src={ vodka_logo.file.url } alt="logo"/>
         { documentToReactComponents(about_vodka_txt.json, options) }
         <h5 id="q-selection-v">{ question_vodka }</h5>
@@ -73,6 +71,8 @@ query {
   contentfulVodkaMain {
     question_vodka,
     question_vodka2,
+    seo_title
+    seo_description
     vodka_logo {
       file {
         url

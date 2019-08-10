@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import SEO from "../components/seo"
 
 const LemonadePages = (props) => {
   const { lemonade_name,
@@ -11,6 +12,8 @@ const LemonadePages = (props) => {
           lemonade_made,
           lemonade_preservation,
           lemonade_license,
+          seo_title,
+          seo_description,
           lemonade_img } = props.data.contentfulLemonadeProduct
   const { edges } = props.data.allContentfulLemonadeProduct
     // Buttons
@@ -27,30 +30,33 @@ const LemonadePages = (props) => {
             </Link>
     })
   return (
-    <article className="v-container">
-    <img className="v-bottle" src={ lemonade_img.file.url} alt={ lemonade_name } draggable="false"/>
-    <section className="l-specs">
-      <div className="l-box">
-        <h2>{ lemonade_name }</h2>
-          <ul >
-            <li><span>Alkoholi:</span><p>{ lemoande_alk }</p></li>
-            <li><span>Tilavuus:</span><p>{ lemonade_bottle }L</p></li>
-            <li><span>Pakkaus:</span><p>{ lemonade_box }</p></li>
-            <li><span>Aineosat:</span><p>{ lemonade_ing }</p></li>
-            <li><span>Säilytys:</span><p>{ lemonade_preservation }</p></li>
-            <li><span>Ravintosisältö:</span><p>{ nutritional_content }</p></li>
-            <li><span>Valmistaja:</span><p>{ lemonade_made }</p></li>
-          </ul>
-      </div>
-    </section>
-    { edges.length > 1 && <ul id="select-items">
-      { buttons }
-    </ul> }
-    
-    { lemonade_license && <section className="v-licence">
-      <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
-    </section>}
-  </article>
+    <>
+      <SEO title={ seo_title } description={ seo_description } />
+      <article className="v-container">
+        <img className="v-bottle" src={ lemonade_img.file.url} alt={ lemonade_name } draggable="false"/>
+        <section className="l-specs">
+          <div className="l-box">
+            <h2>{ lemonade_name }</h2>
+              <ul >
+                <li><span>Alkoholi:</span><p>{ lemoande_alk }</p></li>
+                <li><span>Tilavuus:</span><p>{ lemonade_bottle }L</p></li>
+                <li><span>Pakkaus:</span><p>{ lemonade_box }</p></li>
+                <li><span>Aineosat:</span><p>{ lemonade_ing }</p></li>
+                <li><span>Säilytys:</span><p>{ lemonade_preservation }</p></li>
+                <li><span>Ravintosisältö:</span><p>{ nutritional_content }</p></li>
+                <li><span>Valmistaja:</span><p>{ lemonade_made }</p></li>
+              </ul>
+          </div>
+        </section>
+        { edges.length > 1 && <ul id="select-items">
+          { buttons }
+        </ul> }
+        
+        { lemonade_license && <section className="v-licence">
+          <p>Tuote on EU:n lainsäädännön mukainen, hyväksytty EU:ssa.</p>
+        </section>}
+      </article>
+    </>
   )
 }
 export default LemonadePages
@@ -67,6 +73,8 @@ query ($pageID: String!) {
     lemonade_made
     lemonade_preservation
     lemonade_license
+    seo_title
+    seo_description
     lemonade_img {
       file {
         url

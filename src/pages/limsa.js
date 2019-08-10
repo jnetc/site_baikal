@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
-import Head from '../components/head'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -18,11 +17,9 @@ const options = {
   },
 }
 
-
-
 const mainLimsa = ({ data }) => {
   console.log(data);
-  const { json } = data.contentfulLemonadeMain.lemonade_about_txt
+  const { seo_title, seo_description, lemonade_about_txt } = data.contentfulLemonadeMain
   const { url } = data.contentfulMainPage.logo.file
   const { edges } = data.allContentfulLemonadeProduct
 
@@ -41,10 +38,9 @@ const mainLimsa = ({ data }) => {
   })
   return (
     <>
-      <Head/>
-      <SEO title="Page two" />
+      <SEO title={ seo_title } description={ seo_description } />
       <img id="lemonade-main-logo" src={ url } alt="logo"/>
-      { documentToReactComponents(json, options)}
+      { documentToReactComponents(lemonade_about_txt.json, options)}
       <ul id="limsa-main">
           { buttons }
       </ul>
@@ -57,6 +53,8 @@ export default mainLimsa
 export const query = graphql `
   query {
     contentfulLemonadeMain {
+      seo_title
+      seo_description
       lemonade_about_txt {
         json
       }
