@@ -13,6 +13,7 @@ const SEO = ({ title, description}) => {
         <meta name="og:type" content="website" />
         <meta name="author" content="@ЖнецЪ" />
         <meta http-equiv="ScreenOrientation" content="autoRotate:disabled"></meta>
+        <link as="font" rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap"/> 
     </Helmet>
   )
 }
