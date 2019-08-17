@@ -18,8 +18,8 @@ const Contacts = (props) => {
           }
         }
       }
-      contentfulMainPage {
-        logo {
+      contentfulLemonadeMain {
+        limsa_logo {
           file {
             url
           }
@@ -29,7 +29,7 @@ const Contacts = (props) => {
   `)
   const { email, tel, address, geo } = data.contentfulContacts 
   const { vodka_logo } = data.contentfulVodkaMain
-  const { logo } = data.contentfulMainPage
+  const { limsa_logo } = data.contentfulLemonadeMain
   const { path } = props
     // Показываем шапку с контактами, без лого
   const showContacts = path.split('/').splice(1, 1)[0];
@@ -50,7 +50,7 @@ const Contacts = (props) => {
       </Link>
       <Link to="/limsa" 
             className={ checkLimsa !== null ? "l-logo-prod show-logo" : "l-logo-prod"}>
-        <img id="v-product-logo" src={ logo.file.url } alt="logo"/>
+        <img id="v-product-logo" src={ limsa_logo.file.url } alt="logo"/>
       </Link>
       <ul className="info-block">
         <li className="info-box">
@@ -60,14 +60,6 @@ const Contacts = (props) => {
             </i>
             <p>{ email }</p>
           </a>
-        </li>      
-        <li className="info-box">
-          <a href={ geo }>
-            <i className="icon-geo" title={ address }>
-              <span></span>
-            </i>
-            <p>{ address }</p>
-          </a>
         </li>
         <li className="info-box">
           <a href={`tel: ${ tel }`}>
@@ -75,6 +67,14 @@ const Contacts = (props) => {
               <span></span>
             </i>
             <p>{ tel }</p>
+          </a>
+        </li>
+        <li className="info-box">
+          <a href={ geo }>
+            <i className="icon-geo" title={ address }>
+              <span></span>
+            </i>
+            <p>{ address }</p>
           </a>
         </li>
       </ul>

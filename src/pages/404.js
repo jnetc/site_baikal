@@ -5,7 +5,8 @@ import { Link } from 'gatsby'
 const NotFoundPage = () => (
   <>
     <SEO title="404: Not found" />
-    <h1>404 NOT FOUND</h1>
+    <h1 className="notfound">404</h1>
+    <h3 className="notfound">PAGE NOT FOUND</h3>
     <Link to="/" className="vodka-btn">
       <p>Paluu Kotisivun</p>
       <span></span>

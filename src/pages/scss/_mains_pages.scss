@@ -1,5 +1,4 @@
-#vodka-main-logo,
-#lemonade-main-logo {
+#vodka-main-logo {
   width: 330px;
   margin: 0 auto;
   @media screen and (max-width: 420px) {
@@ -8,6 +7,14 @@
   }
   @media screen and (max-height: 950px) {
     margin-top: 60px;
+  }
+}
+
+#lemonade-main-logo {
+  width: 330px;
+  margin: 100px auto 0;
+  @media screen and (max-width: 420px) {
+    width: 250px;
   }
 }
 

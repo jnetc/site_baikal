@@ -18,9 +18,8 @@ const options = {
 }
 
 const mainLimsa = ({ data }) => {
-  console.log(data);
-  const { seo_title, seo_description, lemonade_about_txt } = data.contentfulLemonadeMain
-  const { url } = data.contentfulMainPage.logo.file
+
+  const { seo_title, seo_description, lemonade_about_txt, limsa_logo } = data.contentfulLemonadeMain
   const { edges } = data.allContentfulLemonadeProduct
 
   const buttons = edges.map(btn => {
@@ -39,7 +38,7 @@ const mainLimsa = ({ data }) => {
   return (
     <>
       <SEO title={ seo_title } description={ seo_description } />
-      <img id="lemonade-main-logo" src={ url } alt="logo"/>
+      <img id="lemonade-main-logo" src={ limsa_logo.file.url } alt="logo"/>
       { documentToReactComponents(lemonade_about_txt.json, options)}
       <ul id="limsa-main">
           { buttons }
@@ -58,19 +57,17 @@ export const query = graphql `
       lemonade_about_txt {
         json
       }
+      limsa_logo {
+        file {
+          url
+        }
+      }
     }
     allContentfulLemonadeProduct {
       edges {
         node {
           pageID
           lemonade_name
-        }
-      }
-    }
-    contentfulMainPage {
-      logo {
-        file {
-          url
         }
       }
     }
