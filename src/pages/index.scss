@@ -12,8 +12,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(-30deg,  $bg-gradient-deep, $bg-gradient-finely);
-  font-family: 'Open Sans', sans-serif;
+  
 }
 
 main {
@@ -24,6 +23,8 @@ main {
     // margin-bottom: 30%;
   }
   &#vodka {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(-30deg,  $bg-gradient-deep, $bg-gradient-finely);
     margin-bottom: 0;
   }
   > div {
@@ -37,6 +38,10 @@ main {
     @media screen and (min-width: 820px) {
       align-items: center;
     }
+  }
+  &#limsa {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    background: linear-gradient(-30deg,  $bg-gradient-deep, $bg-gradient-lilla);
   }
 }
 

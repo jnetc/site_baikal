@@ -8,7 +8,7 @@ const TransitionPage = ({ props }) => {
   const path =  location.pathname.split('/').splice(1, 1)[0];
 
   return (
-    <TransitionGroup component={'main'} id={ path === "vodka" ? "vodka" : "" }>
+    <TransitionGroup component={'main'} id={ path === "limsa" ? "limsa" : "vodka" }>
       <CSSTransition
         key={ location.pathname }
         timeout={ 500 }

@@ -43,11 +43,7 @@ const Contacts = (props) => {
   
   return (
     <>
-      { show && <header className={ show ? "show" : "" }>
-      <Link to="/vodka" 
-            className={ checkVodka !== null ? "v-logo-prod show-logo" : "v-logo-prod"}>
-        <img id="v-product-logo" src={ vodka_logo.file.url } alt="logo"/>
-      </Link>
+      { showContacts !== "vodka" ? <header className={ show ? "show lheader" : "" }>
       <Link to="/limsa" 
             className={ checkLimsa !== null ? "l-logo-prod show-logo" : "l-logo-prod"}>
         <img id="v-product-logo" src={ limsa_logo.file.url } alt="logo"/>
@@ -55,7 +51,7 @@ const Contacts = (props) => {
       <ul className="info-block">
         <li className="info-box">
           <a href={`mailto: ${ email }`}>
-            <i className="icon-email" title={ email }>
+            <i className="licon icon-email" title={ email }>
               <span></span>
             </i>
             <p>{ email }</p>
@@ -63,7 +59,7 @@ const Contacts = (props) => {
         </li>
         <li className="info-box">
           <a href={`tel: ${ tel }`}>
-            <i className="icon-phone" title={ tel }>
+            <i className="licon icon-phone" title={ tel }>
               <span></span>
             </i>
             <p>{ tel }</p>
@@ -71,7 +67,39 @@ const Contacts = (props) => {
         </li>
         <li className="info-box">
           <a href={ geo }>
-            <i className="icon-geo" title={ address }>
+            <i className="licon icon-geo" title={ address }>
+              <span></span>
+            </i>
+            <p>{ address }</p>
+          </a>
+        </li>
+      </ul>
+    </header> : 
+    <header className={ show ? "show vheader" : "" }>
+      <Link to="/vodka" 
+            className={ checkVodka !== null ? "v-logo-prod show-logo" : "v-logo-prod"}>
+        <img id="v-product-logo" src={ vodka_logo.file.url } alt="logo"/>
+      </Link>
+      <ul className="info-block">
+        <li className="info-box">
+          <a href={`mailto: ${ email }`}>
+            <i className="vicon icon-email" title={ email }>
+              <span></span>
+            </i>
+            <p>{ email }</p>
+          </a>
+        </li>
+        <li className="info-box">
+          <a href={`tel: ${ tel }`}>
+            <i className="vicon icon-phone" title={ tel }>
+              <span></span>
+            </i>
+            <p>{ tel }</p>
+          </a>
+        </li>
+        <li className="info-box">
+          <a href={ geo }>
+            <i className="vicon icon-geo" title={ address }>
               <span></span>
             </i>
             <p>{ address }</p>

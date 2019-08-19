@@ -35,7 +35,6 @@
   padding: 10px;
   color: $textcolor;
   text-shadow: 15px 25px 4px rgba($deep-blue, .1);
-  border-radius: 50px;
   border-width: 2px;
   border-style: solid;
   border-color: rgba($textcolor, 0.2);
@@ -43,7 +42,6 @@
   transition: all .3s ease-in-out;
   user-select: none;
   > p {
-    // font-size: $fs-xs;
     font-weight: bold;
   }
   > span {
@@ -105,6 +103,25 @@
     }
     > span::before {
       transform: translate(-40px, 0px);
+    }
+  }
+}
+
+.vodka-btn {
+  border-radius: 50px;
+  > span { 
+    border-radius: 50px;
+    &::before {
+      background: linear-gradient(155deg, rgba($deep-blue, .7) 0%, rgba($deep-blue, .7) 30%, rgba($textcolor, 0.2) 30.01%, rgba($textcolor, 0.2) 60%, rgba($textcolor, 0.03) 60.01%, rgba($textcolor, 0.03) 100%);
+    }
+  }
+}
+.lemonade-btn {
+  border-radius: 5px;
+  > span {
+    border-radius: 5px;
+    &::before {
+      background: linear-gradient(155deg, rgba($bg-gradient-lilla, .7) 0%, rgba($bg-gradient-lilla, .7) 30%, rgba($textcolor, 0.2) 30.01%, rgba($textcolor, 0.2) 60%, rgba($textcolor, 0.03) 60.01%, rgba($textcolor, 0.03) 100%);
     }
   }
 }

@@ -14,6 +14,7 @@ const SEO = ({ title, description}) => {
         <meta name="author" content="@ЖнецЪ" />
         <meta http-equiv="ScreenOrientation" content="autoRotate:disabled"></meta>
         <link rel="prefetch" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap"/> 
+        <link rel="prefetch" href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:400,700&display=swap"/> 
     </Helmet>
   )
 }
