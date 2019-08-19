@@ -6,7 +6,7 @@ import Lights from './lights'
 import Bubbles from './bubbles'
 import Fish from './fish'
 
-const Background = () => {
+const Background = (props) => {
     const firm = useStaticQuery(graphql `
       query {
         contentfulContacts {
@@ -17,13 +17,13 @@ const Background = () => {
     const { firm_name } = firm.contentfulContacts
     return (
       <div id="background">
-        <FourthReef/>
-        <ThirdReef/>
+        <FourthReef path={ props.path }/>
+        <ThirdReef path={ props.path }/>
         <Fish data={{ class: 'fl2'}}/>
         <Fish data={{ class: 'fl1'}}/>
         <Fish data={{ class: 'fl3'}}/>
         <SecondReef/>
-        <MainReef/>
+        <MainReef path={ props.path }/>
         <MobReef/>
         <Stone2/>
         <Stone/>

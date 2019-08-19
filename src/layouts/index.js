@@ -7,8 +7,8 @@ import '../../static/css/fontello.css'
 
 const Layout = (props) => {
     // Фильтруем по линку
-  // const path =  props.location.pathname.split('/').splice(1, 1)[0];
-  console.log(props);
+  const pathval =  props.path.split('/').splice(1, 1)[0];
+  console.log(pathval);
   
   return (
     <React.Fragment>
@@ -16,7 +16,7 @@ const Layout = (props) => {
       <TransitionPage props={ props }>
         { props.children }
       </TransitionPage>
-      <Background/>
+      <Background path={ pathval }/>
     </React.Fragment>
   )
 }

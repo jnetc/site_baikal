@@ -1,8 +1,10 @@
 svg#first_reef,
 svg#mob_reef,
 svg#second_reef,
-svg#third_reef,
-svg#fourth_reef,
+svg#lthird_reef,
+svg#lfourth_reef,
+svg#vthird_reef,
+svg#vfourth_reef,
 svg#stone_one,
 svg#stone_two,
 svg#stone_three {
@@ -44,17 +46,16 @@ svg#second_reef {
   }
 }
 
-svg#third_reef {
+svg#vthird_reef,
+svg#lthird_reef {
   width: 43%;
   left: 55.8%;
   bottom: 0%;
-  fill: #0a467a;
   z-index: 10;
   @media screen and (orientation: portrait) {
     width: 54%;
     bottom: 4%;
     left: 50.8%;
-    fill: #0a467a;
   }
   @media screen and (max-width: 820px) {
     bottom: 2.5%;
@@ -63,11 +64,19 @@ svg#third_reef {
     bottom: .5%;
   }
 }
-svg#fourth_reef {
+svg#vthird_reef {
+  fill: #0a467a;
+}
+svg#lthird_reef {
+  fill: #1c3d80;
+}
+
+
+svg#vfourth_reef,
+svg#lfourth_reef {
   width: 38%;
   bottom: 1%;
   left: -1.8%;
-  fill: #0b508b;
   z-index: 10;
   @media screen and (orientation: portrait) {
     width: 56%;
@@ -80,6 +89,12 @@ svg#fourth_reef {
   @media screen and (orientation: landscape) {
     bottom: .5%;
   }
+}
+svg#vfourth_reef {
+  fill: #0b508b;
+}
+svg#lfourth_reef {
+  fill: #384294;
 }
 
 svg#stone_one {
