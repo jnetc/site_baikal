@@ -20,6 +20,7 @@ h1 {
   font-size: $fs-s;
   margin: 60px auto;
   white-space: pre-wrap;
+  font-family: 'Open Sans', sans-serif;
   @media screen and (max-width: 750px) {
     width: 95%;
     font-size: $fs-s;
