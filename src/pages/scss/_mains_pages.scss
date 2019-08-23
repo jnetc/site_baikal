@@ -17,6 +17,22 @@
     width: 250px;
   }
 }
+#lemonade-main-block {
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 920px) {
+    flex-direction: column;
+  }
+  img {
+    height: 350px;
+    margin-right: 20px;
+    position: relative;
+    top: 30px;
+    @media only screen and (max-width: 920px) and ( min-width: 421px) {
+      margin-right: 0px;
+    }
+  }
+}
 
 p#about-vodka,
 p#about-lemonade {

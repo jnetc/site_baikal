@@ -78,7 +78,7 @@ const VodkaPages = (props) => {
                     <li><span>Varasto:</span><p>{ vodka_warehouse }</p></li>
                   </ul> 
                 <button id="v-item-btn" onClick={ ()=> {setState(!state)}}>
-                  Vodkasta
+                  Tuotekuvaus
                   <span></span>
                 </button>
               </div>

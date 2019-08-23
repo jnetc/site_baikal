@@ -82,6 +82,15 @@ article.v-container {
     position: relative;
     transition: all .5s ease-in-out;
     z-index: 500;
+    figure {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    img {
+      width: 250px;
+      margin: 0 auto 40px;
+    }
     @media screen and (max-width: 820px) {
       width: 90%;
      }

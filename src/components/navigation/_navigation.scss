@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 5px;
+  margin: 7px auto;
   padding: 10px;
   color: $textcolor;
   text-shadow: 15px 25px 4px rgba($deep-blue, .1);
@@ -118,6 +118,14 @@
 }
 .lemonade-btn {
   border-radius: 5px;
+  &.back-btn {
+    width: 150px;
+    margin-top: 20px;
+    margin-left: 0;
+    @media screen and (max-width: 1100px) {
+      margin-left:  auto;
+    }
+  }
   > span {
     border-radius: 5px;
     &::before {

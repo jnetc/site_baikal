@@ -1,13 +1,13 @@
 #logo-baikal {
-  width: 400px;
-  margin: 60px auto 40px;
+  width: 300px;
+  margin: 60px auto 30px;
   fill: $textcolor;
   @media screen and (max-width: 750px) {
     width: 300px;
   }
 }
 h1 {
-  font-size: $fs-xxl;
+  font-size: $fs-xl;
   font-weight: 400;
   text-align: center;
   @media screen and (max-width: 750px) {
@@ -18,7 +18,7 @@ h1 {
 #main-about-site {
   width: 70%;
   font-size: $fs-s;
-  margin: 60px auto;
+  margin: 30px auto 60px;
   white-space: pre-wrap;
   font-family: 'Open Sans', sans-serif;
   @media screen and (max-width: 750px) {

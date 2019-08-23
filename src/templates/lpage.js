@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import SEO from "../components/seo"
 
-const LemonadePages = (props) => {
+const LemonadePages = ({ data }) => {
   const { lemonade_name,
           lemoande_alk,
           lemonade_box,
@@ -14,8 +14,9 @@ const LemonadePages = (props) => {
           lemonade_license,
           seo_title,
           seo_description,
-          lemonade_img } = props.data.contentfulLemonadeProduct
-  const { edges } = props.data.allContentfulLemonadeProduct
+          lemonade_img } = data.contentfulLemonadeProduct
+  const { edges } = data.allContentfulLemonadeProduct
+  const { url } = data.contentfulLemonadeMain.limsa_logo.file
     // Buttons
   const buttons = edges.map(btn => {      
     return <Link 
@@ -36,6 +37,9 @@ const LemonadePages = (props) => {
         <img className="v-bottle" src={ lemonade_img.file.url} alt={ lemonade_name } draggable="false"/>
         <section className="l-specs">
           <div className="l-box">
+            <figure>
+              <img src={ url } alt={ lemonade_name }/>
+            </figure>
             <h2>{ lemonade_name }</h2>
               <ul >
                 <li><span>Alkoholi:</span><p>{ lemoande_alk }</p></li>
@@ -46,6 +50,10 @@ const LemonadePages = (props) => {
                 <li><span>Ravintosisältö:</span><p>{ nutritional_content }</p></li>
                 <li><span>Valmistaja:</span><p>{ lemonade_made }</p></li>
               </ul>
+              <Link to="/limsa" className="lemonade-btn back-btn">
+                <p>Takaisin</p>
+                <span></span>
+              </Link>
           </div>
         </section>
         { edges.length > 1 && <ul id="select-items">
@@ -87,6 +95,13 @@ query ($pageID: String!) {
         pageID
         lemonade_name
         btn_order
+      }
+    }
+  }
+  contentfulLemonadeMain {
+    limsa_logo {
+      file {
+        url
       }
     }
   }

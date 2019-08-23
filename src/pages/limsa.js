@@ -39,7 +39,12 @@ const mainLimsa = ({ data }) => {
     <>
       <SEO title={ seo_title } description={ seo_description } />
       <img id="lemonade-main-logo" src={ limsa_logo.file.url } alt="logo"/>
-      { documentToReactComponents(lemonade_about_txt.json, options)}
+      <div id="lemonade-main-block"> 
+        <img src={ edges[0].node.lemonade_img.file.url } alt="limsa"/>
+        <div>
+          { documentToReactComponents(lemonade_about_txt.json, options)}
+        </div>
+      </div>
       <ul id="limsa-main">
           { buttons }
       </ul>
@@ -68,6 +73,11 @@ export const query = graphql `
         node {
           pageID
           lemonade_name
+          lemonade_img {
+            file {
+              url
+            }
+          }
         }
       }
     }
