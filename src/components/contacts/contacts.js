@@ -41,6 +41,8 @@ const Contacts = (props) => {
   const checkVodka = txt.match(maskVodka)
   const maskLimsa = '/limsa/[A-Z,a-z,0-9]'
   const checkLimsa = txt.match(maskLimsa)
+  console.log(showContacts, show);
+  
     
   return (
     <>
