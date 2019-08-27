@@ -27,6 +27,7 @@ const Contacts = (props) => {
       }
     }
   `)
+  
   const { email, tel, address, geo } = data.contentfulContacts 
   const { vodka_logo } = data.contentfulVodkaMain
   const { limsa_logo } = data.contentfulLemonadeMain
@@ -39,8 +40,8 @@ const Contacts = (props) => {
   const maskVodka = '/vodka/[A-Z,a-z,0-9]'
   const checkVodka = txt.match(maskVodka)
   const maskLimsa = '/limsa/[A-Z,a-z,0-9]'
-  const checkLimsa = txt.match(maskLimsa)    
-  
+  const checkLimsa = txt.match(maskLimsa)
+    
   return (
     <>
       { showContacts !== "vodka" ? <header className={ show ? "show lheader" : "" }>

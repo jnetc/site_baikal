@@ -39,7 +39,6 @@ const VodkaPages = (props) => {
     seo_description,
     vodka_img } = props.data.contentfulVodkaProduct
         
-    console.log(edges);
     const buttons = edges.map(btn => {
       const removeOriginal = btn.node.vodka_name.split('®').join('').trim()
       // const removeOriginal = btn.node.vodka_name.split('®').pop().trim()

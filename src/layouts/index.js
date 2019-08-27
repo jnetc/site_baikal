@@ -8,7 +8,6 @@ import '../../static/css/fontello.css'
 const Layout = (props) => {
     // Фильтруем по линку
   const pathval =  props.path.split('/').splice(1, 1)[0];
-  console.log(pathval);
   
   return (
     <React.Fragment>
