@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 
 
@@ -28,21 +28,26 @@ const Contacts = (props) => {
     }
   `)
   
+    const [ show, setShow ] = useState(false)
+
   const { email, tel, address, geo } = data.contentfulContacts 
   const { vodka_logo } = data.contentfulVodkaMain
   const { limsa_logo } = data.contentfulLemonadeMain
   const { path } = props
     // Показываем шапку с контактами, без лого
   const showContacts = path.split('/').splice(1, 1)[0];
-  const show = showContacts === "vodka" || showContacts === "limsa"  
+  useEffect(() => {
+    const show = showContacts === "vodka" || showContacts === "limsa" 
+    setShow(show)
+    console.log(show);
+    
+  }) 
     // Показываем лого когда выбран продукт
   const txt = path
   const maskVodka = '/vodka/[A-Z,a-z,0-9]'
   const checkVodka = txt.match(maskVodka)
   const maskLimsa = '/limsa/[A-Z,a-z,0-9]'
-  const checkLimsa = txt.match(maskLimsa)
-  console.log(showContacts, show);
-  
+  const checkLimsa = txt.match(maskLimsa)  
     
   return (
     <>
