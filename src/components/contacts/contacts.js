@@ -28,7 +28,9 @@ const Contacts = (props) => {
     }
   `)
   
-    const [ show, setShow ] = useState(false)
+  const [ show, setShow ] = useState(false)
+  const [ showV, setShowV ] = useState(false)
+  const [ showL, setShowL ] = useState(false)
 
   const { email, tel, address, geo } = data.contentfulContacts 
   const { vodka_logo } = data.contentfulVodkaMain
@@ -36,24 +38,27 @@ const Contacts = (props) => {
   const { path } = props
     // Показываем шапку с контактами, без лого
   const showContacts = path.split('/').splice(1, 1)[0];
+  
   useEffect(() => {
+      // Показываем шапку с контактами
     const show = showContacts === "vodka" || showContacts === "limsa" 
+      // Показываем лого когда выбран продукт
+    const txt = path
+    const maskVodka = '/vodka/[A-Z,a-z,0-9]'
+    const checkVodka = txt.match(maskVodka) !== null
+    const maskLimsa = '/limsa/[A-Z,a-z,0-9]'
+    const checkLimsa = txt.match(maskLimsa) !== null
+
     setShow(show)
-    console.log(show);
-    
+    setShowV(checkVodka)
+    setShowL(checkLimsa)
   }) 
-    // Показываем лого когда выбран продукт
-  const txt = path
-  const maskVodka = '/vodka/[A-Z,a-z,0-9]'
-  const checkVodka = txt.match(maskVodka)
-  const maskLimsa = '/limsa/[A-Z,a-z,0-9]'
-  const checkLimsa = txt.match(maskLimsa)  
     
   return (
     <>
       { showContacts !== "vodka" ? <header className={ show ? "show lheader" : "" }>
       <Link to="/limsa" 
-            className={ checkLimsa !== null ? "l-logo-prod show-logo" : "l-logo-prod"}>
+            className={ showL ? "l-logo-prod show-logo" : "l-logo-prod"}>
         <img id="v-product-logo" src={ limsa_logo.file.url } alt="logo"/>
       </Link>
       <ul className="info-block">
@@ -85,7 +90,7 @@ const Contacts = (props) => {
     </header> : 
     <header className={ show ? "show vheader" : "" }>
       <Link to="/vodka" 
-            className={ checkVodka !== null ? "v-logo-prod show-logo" : "v-logo-prod"}>
+            className={ showV ? "v-logo-prod show-logo" : "v-logo-prod"}>
         <img id="v-product-logo" src={ vodka_logo.file.url } alt="logo"/>
       </Link>
       <ul className="info-block">
